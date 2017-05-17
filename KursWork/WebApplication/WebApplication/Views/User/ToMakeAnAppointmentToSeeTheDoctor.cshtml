@@ -1,0 +1,70 @@
+﻿@model WebApplication.Models.RecordOnReceptionToTheDoctor
+@{
+    ViewBag.Title = "Запись на приём к врачу";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form role="form" method="post">
+    
+    <label for="hospital">Выберите больницу к которой Вы приписаны</label>
+    @Html.DropDownList("Hospital", ViewBag.SD as SelectList, new { id = "hospital", @class = "form-control" })
+
+    <label for="doctors">Доктор</label>
+    <select name="Doctor" id = "doctors" class = "form-control">
+        
+        @foreach (var item in ViewBag.Doctors)
+        {
+            <option value="@item.Id">@item.FIO</option>
+        }
+
+    </select>
+
+    <label for="datepicker">Дата приёма</label>
+    <input id="datepicker" type="date" name="Date" class="form-control">
+
+    <div id="roomPass">
+    </div>
+    
+    
+    @section scripts{
+    <script type="text/javascript">
+
+
+
+        $('#hospital').on('change', (function () {
+            // получаем выбранный id
+
+            var objSel = document.getElementById('hospital');
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetItemsMDSelect")?id=' + objSel.value,
+                success: function (data) {
+                    $('#doctors').replaceWith(data);
+
+                }
+            });
+
+        }));
+
+   
+        $('#datepicker').on('change', (function () {
+            // получаем выбранный id
+
+            var objSel = document.getElementById('datepicker');
+            var objSel2 = document.getElementById('doctors');
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetItemsRoomPass")?date='+objSel.value+'&'+'id='+objSel2.value,
+                success: function (data) {
+                    $('#roomPass').replaceWith(data);
+
+                }
+            });
+            
+        }));
+    </script>
+    }    
+
+    <button type="submit" class="btn btn-default">Отправить</button>
+</form>
+

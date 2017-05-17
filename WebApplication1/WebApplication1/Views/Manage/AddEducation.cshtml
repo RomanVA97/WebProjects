@@ -1,0 +1,30 @@
+﻿@using WebApplication1.Models;
+
+<div id="E">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <td>Название уч. заведения</td>
+            <td>Уровень/профиль</td>
+            <td>Длительность</td>
+            <td>Факультет</td>
+            <td>Специальность</td>
+            <td>Квалификация по диплому</td>
+            <td>Форма обучения</td>
+        </tr>
+
+        @foreach (EducationItem item in ViewBag.Education)
+            {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Level / @item.Profile</td>
+                <td>@item.Since / @item.For</td>
+                <td>@item.Faculty</td>
+                <td>@item.Specialty</td>
+                <td>@item.DiplomaQualification</td>
+                <td>@item.FormOfTraining</td>
+            </tr>
+        }
+
+    </table>
+</div>
+

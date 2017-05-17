@@ -1,0 +1,27 @@
+﻿@using WebApplication1.Models;
+
+<div id="P">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <td>Должность</td>
+            <td>Условия труда</td>
+            <td>Укажите, какие профессиональные задачи Вы способны решать наиболее компетентно в настоящее время</td>
+            <td>Дополнительные сведения,которые Вы считаете необходимым сообщить</td>
+        </tr>
+
+        <tr>
+            <td>
+                @foreach (DesiredPositionItem item in ViewBag.DesiredPosition)
+                {
+                    @item.ThePost
+                }
+            </td>
+            <td width="300px"><textarea name="WorkingConditions" id="InputWorkingConditions" class="form-control" rows="3">@ViewBag.WorkingConditions</textarea></td>
+            <td width="300px"><textarea name="ProfessionalTasks" id="InputProfessionalTasks" class="form-control" rows="3">@ViewBag.ProfessionalTasks</textarea></td>
+            <td width="300px"><textarea name="ForMoreInformation" id="InputForMoreInformation" class="form-control" rows="3">@ViewBag.ForMoreInformation</textarea></td>
+        </tr>
+
+
+    </table>
+</div>
+

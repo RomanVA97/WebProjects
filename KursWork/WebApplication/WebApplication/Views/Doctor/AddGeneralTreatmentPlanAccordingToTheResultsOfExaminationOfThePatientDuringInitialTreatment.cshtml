@@ -1,0 +1,33 @@
+﻿<div id="tabs-4_item">
+    <table class="table table-hover">
+        <tr>
+            <td>Дата</td>
+            <td>Оказание неотложной помощи</td>
+            <td>Профилактические мероприятия</td>
+            <td>Обучение гигиене</td>
+            <td>Терапевтическое лечение</td>
+            <td>Хирургическое лечение</td>
+            <td>Ортопедическое лечение</td>
+            <td>Ортодонтическое лечение</td>
+            <td>Дополнительные диагностические мероприятия</td>
+            <td>Консультация других специалистов</td>
+
+        </tr>
+        @foreach (var item in ViewBag.gtpattroeotpdit)
+        {
+            <tr>
+                <td>@item.Date</td>
+                <td>@item.EmergencyCare</td>
+                <td>@item.PreventiveMeasures</td>
+                <td>@item.HygieneEducation</td>
+                <td>@item.TherapeuticTreatment</td>
+                <td>@item.SurgicalTreatment</td>
+                <td>@item.OrthopedicTreatment</td>
+                <td>@item.OrthodonticTreatment</td>
+                <td>@item.AdditionalDiagnosticMeasures</td>
+                <td>@item.ConsultOtherSpecialists</td>
+            </tr>
+        }
+    </table>
+</div>
+

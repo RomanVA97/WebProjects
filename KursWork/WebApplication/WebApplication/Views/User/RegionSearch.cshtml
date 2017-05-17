@@ -1,0 +1,12 @@
+﻿@model IEnumerable<WebApplication.Models.Region>
+
+<div id="results">
+    <label for="InputGender">Выберите регион</label>
+    <select class="form-control" name="Gender" id="InputGender">
+        @foreach (var item in Model)
+        {
+            <option value=@item.Id> @item.Name </option>
+        
+        }
+    </select>
+</div>

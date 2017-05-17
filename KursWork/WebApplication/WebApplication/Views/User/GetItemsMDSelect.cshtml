@@ -1,0 +1,9 @@
+﻿<select name="Doctor" id="doctors" class="form-control">
+
+    @foreach (var item in ViewBag.Doctors)
+    {
+        <option value="@item.Id">@item.FIO</option>
+    }
+
+</select>
+

@@ -1,0 +1,155 @@
+﻿<div id="tabs-2_item">
+    @foreach (var item in ViewBag.ds)
+    {
+        <h5>Дата - @item.Date</h5>
+                    <table class="table">
+                        <tr>
+                            <td></td>
+                            <td>@item.ToothNumber18</td>
+                            <td>@item.ToothNumber17</td>
+                            <td>@item.ToothNumber16</td>
+                            <td>@item.ToothNumber15</td>
+                            <td>@item.ToothNumber14</td>
+                            <td>@item.ToothNumber13</td>
+                            <td>@item.ToothNumber12</td>
+                            <td>@item.ToothNumber11</td>
+                            <td>@item.ToothNumber21</td>
+                            <td>@item.ToothNumber22</td>
+                            <td>@item.ToothNumber23</td>
+                            <td>@item.ToothNumber24</td>
+                            <td>@item.ToothNumber25</td>
+                            <td>@item.ToothNumber26</td>
+                            <td>@item.ToothNumber27</td>
+                            <td>@item.ToothNumber28</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>18</td>
+                            <td>17</td>
+                            <td>16</td>
+                            <td>15</td>
+                            <td>14</td>
+                            <td>13</td>
+                            <td>12</td>
+                            <td>11</td>
+                            <td>21</td>
+                            <td>22</td>
+                            <td>23</td>
+                            <td>24</td>
+                            <td>25</td>
+                            <td>26</td>
+                            <td>27</td>
+                            <td>28</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>48</td>
+                            <td>47</td>
+                            <td>46</td>
+                            <td>45</td>
+                            <td>44</td>
+                            <td>43</td>
+                            <td>42</td>
+                            <td>41</td>
+                            <td>31</td>
+                            <td>32</td>
+                            <td>33</td>
+                            <td>34</td>
+                            <td>35</td>
+                            <td>36</td>
+                            <td>37</td>
+                            <td>38</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@item.ToothNumber48</td>
+                            <td>@item.ToothNumber47</td>
+                            <td>@item.ToothNumber46</td>
+                            <td>@item.ToothNumber45</td>
+                            <td>@item.ToothNumber44</td>
+                            <td>@item.ToothNumber43</td>
+                            <td>@item.ToothNumber42</td>
+                            <td>@item.ToothNumber41</td>
+                            <td>@item.ToothNumber31</td>
+                            <td>@item.ToothNumber32</td>
+                            <td>@item.ToothNumber33</td>
+                            <td>@item.ToothNumber34</td>
+                            <td>@item.ToothNumber35</td>
+                            <td>@item.ToothNumber36</td>
+                            <td>@item.ToothNumber37</td>
+                            <td>@item.ToothNumber38</td>
+                        </tr>
+
+                        <tr>
+                            <td>OHI-S</td>
+                            @{
+                                string[] array = item.OHI_S.Split(' ');
+                                for (int i = 0; i < array.Length / 2; i += 2)
+                                {
+
+                                    <td>@array[i]/@array[i + 1]</td>
+                                }
+                            }
+
+                        </tr>
+                        <tr>
+                            <td></td>
+                            @{
+                                for (int i = array.Length / 2; i < array.Length; i += 2)
+                                {
+                                    <td>@array[i]/@array[i + 1]</td>
+                                }
+                            }
+
+                        </tr>
+
+                        <tr>
+
+                            <td>КПИ</td>
+                            @{
+                                string[] arrayKPI = item.KPI.Split(' ');
+                            }
+                            @for (int i = 0; i < arrayKPI.Length / 2; i++)
+                            {
+
+                                <td>@arrayKPI[i]</td>
+                            }
+
+
+                        </tr>
+                        <tr>
+                            <td></td>
+                            @for (int i = arrayKPI.Length / 2; i < arrayKPI.Length; i++)
+                            {
+                                <td>@arrayKPI[i]</td>
+                            }
+
+
+                        </tr>
+
+                        <tr>
+
+                    </table>
+                        <text>Прикус
+                            <br />@item.Bite
+                            <br />Состояние твёрдых тканей зубов, периодонта
+                            <br />@item.TheStatusOfHardTissueOfTeethPeriodontal
+                            <br />Состояние слизистой оболочки рта
+                            <br />@item.TheConditionOfTheOralMucosa
+                            <br />Данные рентгенологических и других исследований
+                            <br />@item.DataX_rayAndOtherStudies
+                            <br />Предварительный диагноз
+                            <br />@item.ThePreliminaryDiagnosis
+                            <br />Прикус
+                            <br />@item.Bite
+                            <br />Состояние твёрдых тканей зубов, периодонта
+                            <br />@item.TheStatusOfHardTissueOfTeethPeriodontal
+                            <br />Состояние слизистой оболочки рта
+                            <br />@item.TheConditionOfTheOralMucosa
+                            <br />Данные рентгенологических и других исследований
+                            <br />@item.DataX_rayAndOtherStudies
+                            <br />Предварительный диагноз
+                            <br />@item.ThePreliminaryDiagnosis<br />
+                        </text>
+    }
+</div>

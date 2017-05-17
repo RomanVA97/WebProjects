@@ -1,0 +1,719 @@
+﻿@{
+    ViewBag.Title = "Приём пациента";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <div class="form-group" hidden ="hidden">
+        <label for="idDPC">Уникальный идентификатор пользователя</label>
+        <input type="text" readonly="readonly" name="Id" class="form-control" id="IdDPC" value=@ViewBag.Id />
+    </div>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Рентгенологические исследования</a></li>
+            <li><a href="#tabs-2">Стоматологический статус</a></li>
+            <li><a href="#tabs-3">Обследование пациента при первичном обращении</a></li>
+            <li><a href="#tabs-4">Общий план лечения по результатам обследования пациента при первичном обращении</a></li>
+            <li><a href="#tabs-5">Дневник посещений</a></li>
+        </ul>
+        <div id="tabs-1">
+            <div id="tabs-1_item">
+                <table class="table table-hover">
+                    <tr>
+                        <td>Назначен вид исследования</td>
+                        <td>Проведено исследование(организация)</td>
+                        <td>Дата проведения</td>
+                        <td>Эквивалентная доза(мЗВ)</td>
+                    </tr>
+                    @foreach (var item in ViewBag.tloaaalor)
+                    {
+                        <tr>
+                            <td>@item.AssignedTypeOfResearch</td>
+                            <td>@item.TheOrganizationWhichConductedTheStudy</td>
+                            <td>@item.Date</td>
+                            <td>@item.EquivalentDose</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+            <button type="button" id="btn_1" class="btn btn-success">Добавить запись</button>
+
+
+            <div id="dialog1" title="Добавление записи">
+                <form role="form">
+
+                    <label for="research">Вид исследования</label>
+                    <input class="form-control" id="research"/>
+
+                    <label for="organization">Организания</label>
+                    <input class="form-control" id="organization"/>
+
+                    <label for="datepicker">Дата проведения</label>
+                    <input id="datepicker" type="date" name="Date" class="form-control">
+
+                    <label for="dose">Эквивалентная доза(м3В)</label>
+                    <input class="form-control" id="dose"/>
+
+                    
+                </form>
+            </div>
+
+
+        </div>
+        
+        <div id="tabs-2">
+            
+            <h4>Стоматологический статус</h4>
+            <button type="button" id="btn_2" class="btn btn-success">Добавить запись</button>
+
+            <div id="tabs-2_item">
+                @foreach (var item in ViewBag.ds)
+                {
+                    <h5>Дата - @item.Date</h5>
+                        <table class="table">
+                            <tr>
+                                <td></td>
+                                <td>@item.ToothNumber18</td>
+                                <td>@item.ToothNumber17</td>
+                                <td>@item.ToothNumber16</td>
+                                <td>@item.ToothNumber15</td>
+                                <td>@item.ToothNumber14</td>
+                                <td>@item.ToothNumber13</td>
+                                <td>@item.ToothNumber12</td>
+                                <td>@item.ToothNumber11</td>
+                                <td>@item.ToothNumber21</td>
+                                <td>@item.ToothNumber22</td>
+                                <td>@item.ToothNumber23</td>
+                                <td>@item.ToothNumber24</td>
+                                <td>@item.ToothNumber25</td>
+                                <td>@item.ToothNumber26</td>
+                                <td>@item.ToothNumber27</td>
+                                <td>@item.ToothNumber28</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>18</td>
+                                <td>17</td>
+                                <td>16</td>
+                                <td>15</td>
+                                <td>14</td>
+                                <td>13</td>
+                                <td>12</td>
+                                <td>11</td>
+                                <td>21</td>
+                                <td>22</td>
+                                <td>23</td>
+                                <td>24</td>
+                                <td>25</td>
+                                <td>26</td>
+                                <td>27</td>
+                                <td>28</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>48</td>
+                                <td>47</td>
+                                <td>46</td>
+                                <td>45</td>
+                                <td>44</td>
+                                <td>43</td>
+                                <td>42</td>
+                                <td>41</td>
+                                <td>31</td>
+                                <td>32</td>
+                                <td>33</td>
+                                <td>34</td>
+                                <td>35</td>
+                                <td>36</td>
+                                <td>37</td>
+                                <td>38</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>@item.ToothNumber48</td>
+                                <td>@item.ToothNumber47</td>
+                                <td>@item.ToothNumber46</td>
+                                <td>@item.ToothNumber45</td>
+                                <td>@item.ToothNumber44</td>
+                                <td>@item.ToothNumber43</td>
+                                <td>@item.ToothNumber42</td>
+                                <td>@item.ToothNumber41</td>
+                                <td>@item.ToothNumber31</td>
+                                <td>@item.ToothNumber32</td>
+                                <td>@item.ToothNumber33</td>
+                                <td>@item.ToothNumber34</td>
+                                <td>@item.ToothNumber35</td>
+                                <td>@item.ToothNumber36</td>
+                                <td>@item.ToothNumber37</td>
+                                <td>@item.ToothNumber38</td>
+                            </tr>
+
+                            <tr>
+                                <td>OHI-S</td>
+                                @{
+                                    string[] array = item.OHI_S.Split(' ');
+                                    for (int i = 0; i < array.Length / 2; i += 2)
+                                    {
+
+                                        <td>@array[i]/@array[i + 1]</td>
+                                    }
+                                }
+
+                            </tr>
+                            <tr>
+                                <td></td>
+                                @{
+                                    for (int i = array.Length / 2; i < array.Length; i += 2)
+                                    {
+                                        <td>@array[i]/@array[i + 1]</td>
+                                    }
+                                }
+
+                            </tr>
+
+                            <tr>
+
+                                <td>КПИ</td>
+                                @{
+                                    string[] arrayKPI = item.KPI.Split(' ');
+                                }
+                                @for (int i = 0; i < arrayKPI.Length / 2; i++)
+                                {
+
+                                    <td>@arrayKPI[i]</td>
+                                }
+
+
+                            </tr>
+                            <tr>
+                                <td></td>
+                                @for (int i = arrayKPI.Length / 2; i < arrayKPI.Length; i++)
+                                {
+                                    <td>@arrayKPI[i]</td>
+                                }
+
+
+                            </tr>
+
+                              
+                        </table>
+                        <text>Прикус
+                        
+                        <br/>Состояние твёрдых тканей зубов, периодонта
+                        <br/>@item.TheStatusOfHardTissueOfTeethPeriodontal
+                        <br/>Состояние слизистой оболочки рта
+                        <br/>@item.TheConditionOfTheOralMucosa
+                        <br/>Данные рентгенологических и других исследований
+                        <br/>@item.DataX_rayAndOtherStudies
+                        <br/>Предварительный диагноз
+                        <br/>@item.ThePreliminaryDiagnosis
+                        <br/>Прикус
+                        <br/>@item.Bite
+                                    </text>
+                                    }
+            </div>
+            
+            <div id="dialog2" title="Добавление записи">
+                <form role="form">
+                    <table class="table">
+                        <tr>
+                            <td></td>
+                            <td><input class="form-control" id="t18" /></td>
+                            <td><input class="form-control" id="t17" /></td>
+                            <td><input class="form-control" id="t16" /></td>
+                            <td><input class="form-control" id="t15" /></td>
+                            <td><input class="form-control" id="t14" /></td>
+                            <td><input class="form-control" id="t13" /></td>
+                            <td><input class="form-control" id="t12" /></td>
+                            <td><input class="form-control" id="t11" /></td>
+                            <td><input class="form-control" id="t21" /></td>
+                            <td><input class="form-control" id="t22" /></td>
+                            <td><input class="form-control" id="t23" /></td>
+                            <td><input class="form-control" id="t24" /></td>
+                            <td><input class="form-control" id="t25" /></td>
+                            <td><input class="form-control" id="t26" /></td>
+                            <td><input class="form-control" id="t27" /></td>
+                            <td><input class="form-control" id="t28" /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>18</td>
+                            <td>17</td>
+                            <td>16</td>
+                            <td>15</td>
+                            <td>14</td>
+                            <td>13</td>
+                            <td>12</td>
+                            <td>11</td>
+                            <td>21</td>
+                            <td>22</td>
+                            <td>23</td>
+                            <td>24</td>
+                            <td>25</td>
+                            <td>26</td>
+                            <td>27</td>
+                            <td>28</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>48</td>
+                            <td>47</td>
+                            <td>46</td>
+                            <td>45</td>
+                            <td>44</td>
+                            <td>43</td>
+                            <td>42</td>
+                            <td>41</td>
+                            <td>31</td>
+                            <td>32</td>
+                            <td>33</td>
+                            <td>34</td>
+                            <td>35</td>
+                            <td>36</td>
+                            <td>37</td>
+                            <td>38</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input class="form-control" id="t48" /></td>
+                            <td><input class="form-control" id="t47" /></td>
+                            <td><input class="form-control" id="t46" /></td>
+                            <td><input class="form-control" id="t45" /></td>
+                            <td><input class="form-control" id="t44" /></td>
+                            <td><input class="form-control" id="t43" /></td>
+                            <td><input class="form-control" id="t42" /></td>
+                            <td><input class="form-control" id="t41" /></td>
+                            <td><input class="form-control" id="t31" /></td>
+                            <td><input class="form-control" id="t32" /></td>
+                            <td><input class="form-control" id="t33" /></td>
+                            <td><input class="form-control" id="t34" /></td>
+                            <td><input class="form-control" id="t35" /></td>
+                            <td><input class="form-control" id="t36" /></td>
+                            <td><input class="form-control" id="t37" /></td>
+                            <td><input class="form-control" id="t38" /></td>
+                        </tr>
+
+                        <tr>
+                            <td>OHI-S</td>
+                            <td><input class="form-control" id="OHI_S1" /></td>
+                            <td>/</td>
+                            <td><input class="form-control" id="OHI_S2" /></td>
+                            <td><input class="form-control" id="OHI_S3" /></td>
+                            <td>/</td>
+                            <td><input class="form-control" id="OHI_S4" /></td>
+                            <td><input class="form-control" id="OHI_S5" /></td>
+                            <td>/</td>
+                            <td><input class="form-control" id="OHI_S6" /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input class="form-control" id="OHI_S7" /></td>
+                            <td>/</td>
+                            <td><input class="form-control" id="OHI_S8" /></td>
+                            <td><input class="form-control" id="OHI_S9" /></td>
+                            <td>/</td>
+                            <td><input class="form-control" id="OHI_S10" /></td>
+                            <td><input class="form-control" id="OHI_S11" /></td>
+                            <td>/</td>
+                            <td><input class="form-control" id="OHI_S12" /></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>КПИ</td>
+                            <td><input class="form-control" id="KPI1" /></td>
+                            <td><input class="form-control" id="KPI2" /></td>
+                            <td><input class="form-control" id="KPI3" /></td>
+
+
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input class="form-control" id="KPI4" /></td>
+                            <td><input class="form-control" id="KPI5" /></td>
+                            <td><input class="form-control" id="KPI6" /></td>
+
+                        </tr>
+
+                    </table>
+                    
+                    <label for="bite">Прикус</label>
+                    <input class="form-control" id="bite" />
+
+                    <label for="tooth">Состояние твёрдых тканей зубов, периодонта</label>
+                    <input class="form-control" id="tooth" />
+
+                    <label for="theOral">Состояние слизистой оболочки рта</label>
+                    <input class="form-control" id="theOral" />
+
+                    <label for="research2">Данные рентгенологических и других исследований</label>
+                    <input class="form-control" id="research2" />
+
+                    <label for="diagnoz">Предварительный диагноз</label>
+                    <input class="form-control" id="diagnoz" />
+
+                </form>
+
+            </div>
+        
+        </div>
+        <div id="tabs-3">
+            <form role="form">
+
+                <div class="form-group">
+                    <label for="date">Дата</label>
+                    <input type="text" name="Date" class="form-control" id="date" value=@ViewBag.eotpdit.Date>
+                </div>
+                <div class="form-group">
+                    <label for="diseaseOfTheCardiovascularSystem">Заболевания сердечно-сосудистой системы</label>
+                    <input type="text" name="DiseaseOfTheCardiovascularSystem" class="form-control" id="diseaseOfTheCardiovascularSystem" value=@ViewBag.eotpdit.DiseaseOfTheCardiovascularSystem>
+                </div>
+                <div class="form-group">
+                    <label for="diseaseOfTheNervousSystem">Заболевания нервной системы</label>
+                    <input type="text" name="DiseaseOfTheNervousSystem" class="form-control" id="diseaseOfTheNervousSystem" value=@ViewBag.eotpdit.DiseaseOfTheNervousSystem>
+                </div>
+                <div class="form-group">
+                    <label for="diseaseOfTheEndocrineSystem">Заболевания эндокринной системы</label>
+                    <input type="text" name="DiseaseOfTheEndocrineSystem" class="form-control" id="diseaseOfTheEndocrineSystem" value=@ViewBag.eotpdit.DiseaseOfTheEndocrineSystem>
+                </div>
+                <div class="form-group">
+                    <label for="diseaseOfTheDigestiveSystem">Заболевания органов пищеварения</label>
+                    <input type="text" name="DiseaseOfTheDigestiveSystem" class="form-control" id="diseaseOfTheDigestiveSystem" value=@ViewBag.eotpdit.DiseaseOfTheDigestiveSystem>
+                </div>
+                <div class="form-group">
+                    <label for="diseaseOfTheRespiratorySystem">Заболевания органов дыхания</label>
+                    <input type="text" name="DiseaseOfTheRespiratorySystem" class="form-control" id="diseaseOfTheRespiratorySystem" value=@ViewBag.eotpdit.DiseaseOfTheRespiratorySystem>
+                </div>
+                <div class="form-group">
+                    <label for="infectiousDiseases">Инфекционные заболевания(вирусный гепатит, туберкулёз, ВИЧ-инфекции, СПИД и т.д.)</label>
+                    <input type="text" name="InfectiousDiseases" class="form-control" id="infectiousDiseases" value=@ViewBag.eotpdit.InfectiousDiseases>
+                </div>
+                <div class="form-group">
+                    <label for="allergicReactions">Аллергические реакции</label>
+                    <input type="text" name="AllergicReactions" class="form-control" id="allergicReactions" value=@ViewBag.eotpdit.AllergicReactions>
+                </div>
+                <div class="form-group">
+                    <label for="theConstantUseOfDrugs">Постоянное применение лекарственных средств</label>
+                    <input type="text" name="TheConstantUseOfDrugs" class="form-control" id="theConstantUseOfDrugs" value=@ViewBag.eotpdit.TheConstantUseOfDrugs>
+                </div>
+                <div class="form-group">
+                    <label for="harmfulFactorsOfProductionEnvironment">Вредные факторы производственной среды</label>
+                    <input type="text" name="HarmfulFactorsOfProductionEnvironment" class="form-control" id="harmfulFactorsOfProductionEnvironment" value=@ViewBag.eotpdit.HarmfulFactorsOfProductionEnvironment>
+                </div>
+                <div class="form-group">
+                    <label for="pregnancyPostpartumPeriod">Беременность, послеродовый период</label>
+                    <input type="text" name="PregnancyPostpartumPeriod" class="form-control" id="pregnancyPostpartumPeriod" value=@ViewBag.eotpdit.PregnancyPostpartumPeriod>
+                </div>
+                <div class="form-group">
+                    <label for="more">Другое</label>
+                    <input type="text" name="More" class="form-control" id="more" value=@ViewBag.eotpdit.More>
+                </div>
+                <div class="form-group">
+                    <label for="externalExamination">Конфигурация лица</label>
+                    <input type="text" name="ExternalExamination" class="form-control" id="externalExamination" value=@ViewBag.eotpdit.ExternalExamination>
+                </div>
+                <div class="form-group">
+                    <label for="theConditionOfTheSkin">Состояние кожных покровов</label>
+                    <input type="text" name="TheConditionOfTheSkin" class="form-control" id="theConditionOfTheSkin" value=@ViewBag.eotpdit.TheConditionOfTheSkin>
+                </div>
+                <div class="form-group">
+                    <label for="theStatusOfTheRegionalLymphNodes">Состояние регионарных лимфатических узлов</label>
+                    <input type="text" name="TheStatusOfTheRegionalLymphNodes" class="form-control" id="theStatusOfTheRegionalLymphNodes" value=@ViewBag.eotpdit.TheStatusOfTheRegionalLymphNodes>
+                </div>
+                <div class="form-group">
+                    <label for="theConditionOfTheTemporomandibularJoint">Состояние височно-челюстного сустава</label>
+                    <input type="text" name="TheConditionOfTheTemporomandibularJoint" class="form-control" id="theConditionOfTheTemporomandibularJoint" value=@ViewBag.eotpdit.TheConditionOfTheTemporomandibularJoint>
+                </div>
+
+                <button type="button" id="btn_3" class="btn btn-success">Сохранить изменения документа</button>
+
+            </form>
+        </div>
+        <div id="tabs-4">
+            
+            <button type="button" id="btn_4" class="btn btn-success">Добавить запись</button>
+            <div id="tabs-4_item">
+                <table class="table table-hover">
+                    <tr>
+                        
+                        <td>Оказание неотложной помощи</td>
+                        <td>Профилактические мероприятия</td>
+                        <td>Обучение гигиене</td>
+                        <td>Терапевтическое лечение</td>
+                        <td>Хирургическое лечение</td>
+                        <td>Ортопедическое лечение</td>
+                        <td>Ортодонтическое лечение</td>
+                        <td>Дополнительные диагностические мероприятия</td>
+                        <td>Консультация других специалистов</td>
+
+                    </tr>
+                    @foreach (var item in ViewBag.gtpattroeotpdit)
+                    {
+                        <tr><td>@item.Date</td></tr>
+                        <tr>
+                            
+                            <td>@item.EmergencyCare</td>
+                            <td>@item.PreventiveMeasures</td>
+                            <td>@item.HygieneEducation</td>
+                            <td>@item.TherapeuticTreatment</td>
+                            <td>@item.SurgicalTreatment</td>
+                            <td>@item.OrthopedicTreatment</td>
+                            <td>@item.OrthodonticTreatment</td>
+                            <td>@item.AdditionalDiagnosticMeasures</td>
+                            <td>@item.ConsultOtherSpecialists</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+            
+            <div id="dialog4" title="Добавление записи">
+                <form role="form">
+                    <div class="col-md-6">
+
+                        <label for="emergencyCare">Оказание неотложной помощи</label>
+                        <input class="form-control" id="emergencyCare" />
+
+                        <label for="preventiveMeasures">Профилактические мероприятия</label>
+                        <input class="form-control" id="preventiveMeasures" />
+
+                        <label for="hygieneEducation">Обучение гигиене</label>
+                        <input class="form-control" id="hygieneEducation" />
+
+                        <label for="therapeuticTreatment">Терапевтическое лечение</label>
+                        <input class="form-control" id="therapeuticTreatment" />
+
+                        <label for="surgicalTreatment">Хирургическое лечение</label>
+                        <input class="form-control" id="surgicalTreatment" />
+                    </div>
+                    <div class="col-md-6">
+
+                        <label for="orthopedicTreatment">Ортопедическое лечение</label>
+                        <input class="form-control" id="orthopedicTreatment" />
+
+                        <label for="orthodonticTreatment">Ортодонтическое лечение</label>
+                        <input class="form-control" id="orthodonticTreatment" />
+
+                        <label for="additionalDiagnosticMeasures">Дополнительные диагностические мероприятия</label>
+                        <input class="form-control" id="additionalDiagnosticMeasures" />
+
+                        <label for="consultOtherSpecialists">Консультация других специалистов</label>
+                        <input class="form-control" id="consultOtherSpecialists" />
+
+                    </div>
+
+                    
+                </form>
+
+            </div>
+            
+        </div>
+
+        <div id="tabs-5">
+            <form role="form">
+
+                <label for="entry">Дневник посещений(Жалобы, клиническая картина и т.д.)</label>
+                <textarea class="form-control" id="entry" rows="6"></textarea>
+
+                <label for="appointment">Назначения пациенту</label>
+                <textarea class="form-control" id="appointment" rows="4"></textarea>
+
+                <button type="button" id="btn_5" class="btn btn-success">Сохранить запись</button>
+            </form>
+        </div>
+    
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+
+            $("#tabs").tabs();
+
+            $("#dialog1").dialog({
+                modal: true,
+                autoOpen: false, buttons: {
+                    OK: function () {
+                        
+                        $.ajax({
+                            type: 'GET',
+                            url: '@Url.Action("AddTheListOfAppointmentsAndAccountingLoadsOfRadiographic")?id=' + document.getElementById('IdDPC').value +
+                                '&assignedTypeOfResearch=' + document.getElementById('research').value +
+                                '&theOrganizationWhichConductedTheStudy=' + document.getElementById('organization').value +
+                                '&date=' + document.getElementById('datepicker').value +
+                                '&equivalentDose=' + document.getElementById('dose').value,
+                            success: function (data) {
+                                $('#tabs-1_item').replaceWith(data);
+                            }
+                        });
+                        $(this).dialog("close");
+                    },
+                    Отмена: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+            $("#btn_1").click(function () {
+                $("#dialog1").dialog("open");
+            });
+
+            $("#dialog2").dialog({
+                modal: true,height:900,width:1000,
+                autoOpen: false, buttons: {
+                    OK: function () {
+                        
+                        $.ajax({
+                            type: 'GET',
+                            url: '@Url.Action("AddDentalStatusDPC")?id=' + document.getElementById('IdDPC').value +
+                                '&OHI_S=' + document.getElementById('OHI_S1').value + " " + document.getElementById('OHI_S2').value +
+                                " " + document.getElementById('OHI_S3').value + " " + document.getElementById('OHI_S4').value +
+                                " " + document.getElementById('OHI_S5').value + " " + document.getElementById('OHI_S6').value +
+                                " " + document.getElementById('OHI_S7').value + " " + document.getElementById('OHI_S8').value +
+                                " " + document.getElementById('OHI_S9').value + " " + document.getElementById('OHI_S10').value +
+                                " " + document.getElementById('OHI_S11').value + " " + document.getElementById('OHI_S12').value +
+
+                                '&KPI=' + document.getElementById('KPI1').value + " " + document.getElementById('KPI2').value +
+                                " " + document.getElementById('KPI3').value + " " + document.getElementById('KPI4').value +
+                                " " + document.getElementById('KPI5').value + " " + document.getElementById('KPI6').value +
+                                '&Bite=' + document.getElementById('bite').value +
+                                '&TheStatusOfHardTissueOfTeethPeriodontal=' + document.getElementById('tooth').value +
+                                '&TheConditionOfTheOralMucosa=' + document.getElementById('theOral').value +
+                                '&DataX_rayAndOtherStudies=' + document.getElementById('research2').value +
+                                '&ThePreliminaryDiagnosis=' + document.getElementById('diagnoz').value +
+                                '&t18=' + document.getElementById('t18').value +
+                                '&t17=' + document.getElementById('t17').value +
+                                '&t16=' + document.getElementById('t16').value +
+                                '&t15=' + document.getElementById('t15').value +
+                                '&t14=' + document.getElementById('t14').value +
+                                '&t13=' + document.getElementById('t13').value +
+                                '&t12=' + document.getElementById('t12').value +
+                                '&t11=' + document.getElementById('t11').value +
+                                '&t21=' + document.getElementById('t21').value +
+                                '&t22=' + document.getElementById('t22').value +
+                                '&t23=' + document.getElementById('t23').value +
+                                '&t24=' + document.getElementById('t24').value +
+                                '&t25=' + document.getElementById('t25').value +
+                                '&t26=' + document.getElementById('t26').value +
+                                '&t27=' + document.getElementById('t27').value +
+                                '&t28=' + document.getElementById('t28').value +
+                                '&t48=' + document.getElementById('t48').value +
+                                '&t47=' + document.getElementById('t47').value +
+                                '&t46=' + document.getElementById('t46').value +
+                                '&t45=' + document.getElementById('t45').value +
+                                '&t44=' + document.getElementById('t44').value +
+                                '&t43=' + document.getElementById('t43').value +
+                                '&t42=' + document.getElementById('t42').value +
+                                '&t41=' + document.getElementById('t41').value +
+                                '&t31=' + document.getElementById('t31').value +
+                                '&t32=' + document.getElementById('t32').value +
+                                '&t33=' + document.getElementById('t33').value +
+                                '&t34=' + document.getElementById('t34').value +
+                                '&t35=' + document.getElementById('t35').value +
+                                '&t36=' + document.getElementById('t36').value +
+                                '&t37=' + document.getElementById('t37').value +
+                                '&t38=' + document.getElementById('t38').value,
+                            success: function (data) {
+                                $('#tabs-2_item').replaceWith(data);
+                                
+                            }
+                        });
+                        $(this).dialog("close");
+                    },
+                    Отмена: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+            $("#btn_2").click(function () {
+                $("#dialog2").dialog("open");
+            });
+
+            $('#btn_3').click(function () {
+
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("ChangeExaminationOfThePatientDuringInitialTreatment")?id=' + document.getElementById('IdDPC').value +
+                        '&DiseaseOfTheCardiovascularSystem=' + document.getElementById('diseaseOfTheCardiovascularSystem').value +
+                        '&DiseaseOfTheNervousSystem=' + document.getElementById('diseaseOfTheNervousSystem').value +
+                        '&DiseaseOfTheEndocrineSystem=' + document.getElementById('diseaseOfTheEndocrineSystem').value +
+                        '&DiseaseOfTheDigestiveSystem=' + document.getElementById('diseaseOfTheDigestiveSystem').value +
+                        '&DiseaseOfTheRespiratorySystem=' + document.getElementById('diseaseOfTheRespiratorySystem').value +
+                        '&InfectiousDiseases=' + document.getElementById('infectiousDiseases').value +
+                        '&AllergicReactions=' + document.getElementById('allergicReactions').value +
+                        '&TheConstantUseOfDrugs=' + document.getElementById('theConstantUseOfDrugs').value +
+                        '&HarmfulFactorsOfProductionEnvironment=' + document.getElementById('harmfulFactorsOfProductionEnvironment').value +
+                        '&PregnancyPostpartumPeriod=' + document.getElementById('pregnancyPostpartumPeriod').value +
+                        '&More=' + document.getElementById('more').value +
+                        '&ExternalExamination=' + document.getElementById('externalExamination').value +
+                        '&TheConditionOfTheSkin=' + document.getElementById('theConditionOfTheSkin').value +
+                        '&TheStatusOfTheRegionalLymphNodes=' + document.getElementById('theStatusOfTheRegionalLymphNodes').value +
+                        '&TheConditionOfTheTemporomandibularJoint=' + document.getElementById('theConditionOfTheTemporomandibularJoint').value,
+                    success: function (data) {
+                        alert("Изменения проведены успешно");
+                    }
+                });
+            })
+            $('#btn_4').click(function () {
+                $("#dialog4").dialog("open");
+
+            })
+            $("#dialog4").dialog({
+                modal: true, height: 600, width: 1000,
+                autoOpen: false, buttons: {
+                    OK: function () {
+                        
+                        $.ajax({
+                            type: 'GET',
+                            url: '@Url.Action("AddGeneralTreatmentPlanAccordingToTheResultsOfExaminationOfThePatientDuringInitialTreatment")?id=' + document.getElementById('IdDPC').value +
+                                '&emergencyCare=' + document.getElementById('emergencyCare').value +
+                                '&preventiveMeasures=' + document.getElementById('preventiveMeasures').value +
+                                '&hygieneEducation=' + document.getElementById('hygieneEducation').value +
+                                '&therapeuticTreatment=' + document.getElementById('therapeuticTreatment').value +
+                                '&surgicalTreatment=' + document.getElementById('surgicalTreatment').value +
+                                '&orthopedicTreatment=' + document.getElementById('orthopedicTreatment').value +
+                                '&orthodonticTreatment=' + document.getElementById('orthodonticTreatment').value +
+                                '&additionalDiagnosticMeasures=' + document.getElementById('additionalDiagnosticMeasures').value +
+                                '&consultOtherSpecialists=' + document.getElementById('consultOtherSpecialists').value,
+                            success: function (data) {
+                                $('#tabs-4_item').replaceWith(data);
+                            }
+                        });
+                        $(this).dialog("close");
+                    },
+                    Отмена: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+            $('#btn_5').click(function () {
+
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("AddDiaryVisitsDPC")?id=' + document.getElementById('IdDPC').value +
+                        '&appointment=' + document.getElementById('appointment').value +
+                        '&entry=' + document.getElementById('entry').value,
+                    success: function (data) {
+                        alert("Изменения проведены успешно");
+                    }
+                });
+            })
+
+
+        });
+
+
+
+        function OnClick(Id)
+        {
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("TakeAPatient")?id='+Id,
+                success: function (data) {
+                    $('#workArea').replaceWith(data);
+                }
+            });
+
+        }
+    </script>
+    
+}

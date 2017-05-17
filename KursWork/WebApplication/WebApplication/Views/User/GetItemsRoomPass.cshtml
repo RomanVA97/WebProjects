@@ -1,0 +1,11 @@
+﻿<div id="roomPass">
+    <label for="time">Доктор</label>
+    <select name="TimeId" id="time" class="form-control">
+
+        @foreach (var item in ViewBag.Items)
+        {
+            <option value="@item.Id">@item.Time</option>
+        }
+
+    </select>
+</div>

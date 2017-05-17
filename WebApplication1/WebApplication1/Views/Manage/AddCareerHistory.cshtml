@@ -1,0 +1,33 @@
+﻿@using WebApplication1.Models;
+
+<div id="CH">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <td>Организация</td>
+            <td>Отрасль</td>
+            <td>Деятельность</td>
+            <td>Должность</td>
+            <td>Должностные обязанности</td>
+            <td>Достижения</td>
+            <td>Заработная плата</td>
+            <td>Причина ухода</td>
+        </tr>
+        @foreach (CareerHistoryItem item in ViewBag.CareerHistory)
+            {
+            <tr>
+                <td>@item.Organization</td>
+                <td>@item.Industry</td>
+                <td>@item.Since / @item.For</td>
+                <td>@item.ThePost</td>
+                <td>@item.JobResponsibilities</td>
+                <td>@item.Achievements</td>
+                <td>@item.Wages</td>
+                <td>@item.ReasonForLeaving</td>
+            </tr>
+        }
+    </table>
+
+</div>
+
+
+

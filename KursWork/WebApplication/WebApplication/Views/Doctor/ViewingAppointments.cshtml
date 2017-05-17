@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Записи на приём";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div id="workArea">
+        <div class="col-md-12">
+            <div class="col-md-3">
+                <label for="datepicker">Дата приёма</label>
+                <input id="datepicker" type="date" name="Date" class="form-control">
+            </div>
+            <div id="table" class="col-md-9">
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+
+@section scripts{
+    <script type="text/javascript">
+    $('#datepicker').on('change', (function () {
+
+        var objSel = document.getElementById('datepicker');
+        $.ajax({
+          type: 'GET',
+          url: '@Url.Action("GetAppointments")?date='+objSel.value,
+          success: function (data) {
+              $('#table').replaceWith(data);
+          }
+          });
+
+    }));
+    </script>
+}

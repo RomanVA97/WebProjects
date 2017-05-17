@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Главная страница пользователя";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-md-8">
+    @ViewBag.Message
+</div>
+<div class="col-md-4">
+    <p />
+    <a href="~/User/TheEditCredentials" class="btn btn-primary btn-lg active btn-block" role="button">
+    Редактирование учётных данных</a>
+    <a href="~/User/ToMakeAnAppointmentToSeeTheDoctor" class="btn btn-primary btn-lg active btn-block" role="button">
+    Записаться на приём к врачу</a>
+    <a href="~/User/MyNotesToTheDoctors" class="btn btn-primary btn-lg active btn-block" role="button">
+    Мои записи к врачу</a>
+    <a href="~/User/DoctorsPrescription" class="btn btn-primary btn-lg active btn-block" role="button">
+    Списки назначений от врачей
+    </a>
+</div>

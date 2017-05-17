@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Приём пациента";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form role="form" method="post">
+
+    <label for="structuralDivision">Структурное подразделение</label>
+    @Html.DropDownList("structuralDivision", ViewBag.structuralDivision as SelectList, new { id = "structuralDivision", @class = "form-control" })
+
+    <label for="medicalDirection">Медицинское направление</label>
+    @Html.DropDownList("medicalDirection", ViewBag.medicalDirection as SelectList, new { id = "medicalDirection", @class = "form-control" })
+
+    <label for="medicalProfile">Профиль</label>
+    @Html.DropDownList("medicalProfile", ViewBag.medicalProfile as SelectList, new { id = "medicalProfile", @class = "form-control" })
+
+    <label for="medicalQualification">Квалификация</label>
+    @Html.DropDownList("medicalQualification", ViewBag.medicalQualification as SelectList, new { id = "medicalQualification", @class = "form-control" })
+
+    <label for="doctorQualification">Категория</label>
+    @Html.DropDownList("doctorQualification", ViewBag.doctorQualification as SelectList, new { id = "doctorQualification", @class = "form-control" })
+
+
+    <div class="form-group">
+        <label for="office">Кабинет</label>
+        <input type="text" name="office" class="form-control" id="office">
+    </div>
+
+
+    <div class="form-group">
+        <label for="hoursOnEvenNumbers">Часы приёма по чётным числам</label>
+        <input type="time" name="hoursOnEvenNumbers" class="form-control" id="hoursOnEvenNumbers">
+    </div>
+    
+    <div class="form-group">
+        <label for="hoursOnOddNumbers">Часы приёма по нечётным числам</label>
+        <input type="time" name="hoursOnOddNumbers" class="form-control" id="hoursOnOddNumbers">
+    </div>
+
+
+    <button type="submit" class="btn btn-success">Сохранить изменения</button>
+
+</form>
+

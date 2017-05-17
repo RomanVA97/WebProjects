@@ -1,0 +1,19 @@
+﻿<div id="tabs-1_item">
+    <table class="table table-hover">
+        <tr>
+            <td>Назначен вид исследования</td>
+            <td>Проведено исследование(организация)</td>
+            <td>Дата проведения</td>
+            <td>Эквивалентная доза(мЗВ)</td>
+        </tr>
+        @foreach (var item in ViewBag.tloaaalor)
+        {
+            <tr>
+                <td>@item.AssignedTypeOfResearch</td>
+                <td>@item.TheOrganizationWhichConductedTheStudy</td>
+                <td>@item.Date</td>
+                <td>@item.EquivalentDose</td>
+            </tr>
+        }
+    </table>
+</div>
