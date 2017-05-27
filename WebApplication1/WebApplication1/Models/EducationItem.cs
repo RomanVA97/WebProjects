@@ -7,6 +7,7 @@ namespace WebApplication1.Models
 {
     public class EducationItem
     {
+        public int? Id { get; set; }
         public string Name { get; set; }
         public string Level { get; set; }
         public string Profile { get; set; }

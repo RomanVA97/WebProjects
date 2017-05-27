@@ -1,4 +1,5 @@
 ﻿using System;
+using TemplateEngine.Docx;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using WebApplication1.Models;
 using System.IO;
+
 
 namespace WebApplication1.Controllers
 {
@@ -375,7 +377,43 @@ namespace WebApplication1.Controllers
             else
             {
                 resume = new Resume();
+                resume.Surname = "";
+                resume.Name = "";
+                resume.MiddleName = "";
                 resume.DateOfBirth = DateTime.Now;
+                resume.Adress = "";
+                resume.HomeNumber = "";
+                resume.WorkNumber = "";
+                resume.Gender = "";
+                resume.Citizenship = "";
+                resume.MaritalStatus = "";
+                resume.TheCompositionOfTheFamily = "";
+                resume.DriversLicense = "";
+                resume.CarBrand = "";
+                resume.TheBusinessAndPsychologicalQualities = "";
+                resume.ProfessionalSkills = "";
+                resume.Hobbies = "";
+                resume.WorkingConditions = "";
+                resume.ProfessionalTasks = "";
+                resume.ForMoreInformation = "";
+                resume.Salary = "";
+                resume.MinSalary = "";
+                resume.NormSalary = "";
+                resume.Comment = "";
+                resume.Income = "";
+                resume.TheProspectOfJobGrowth = "";
+                resume.ToGetTheNecessaryExperience = "";
+                resume.ToImproveTheProfessionalLevel = "";
+                resume.ToDemonstrateTheirAbilities = "";
+                resume.AHighLevelOfAutonomy = "";
+                resume.TheStabilityOfTheCompany = "";
+                resume.ActivitiesOfTheCompany = "";
+                resume.WorkingConditionsInTheWorkplace = "";
+                resume.RelationsWithTheLeadership = "";
+                resume.SomethingElse = "";
+
+
+
                 RC.Resume.Add(resume);
                 RC.SaveChanges();
                 user.ResumeID = resume.Id;
@@ -605,6 +643,69 @@ namespace WebApplication1.Controllers
             return PartialView();
         }
 
+        
+
+        [HttpPost]
+        public ActionResult DeleteCareerHistory(int? id, int? id2)
+        {
+            ResumeContext RC = new ResumeContext();
+            CareerHistory ch = RC.CareerHistory.Find(id);
+
+
+            RC.CareerHistory.Remove(ch);
+            RC.SaveChanges();
+
+            ViewBag.CareerHistory = CareerHistory.GetItems(id2);
+            RC.Dispose();
+            return PartialView("AddCareerHistory");
+        }
+
+        [HttpGet]
+        public ActionResult ChangeCareerHistory(int? id)
+        {
+            ResumeContext RC = new ResumeContext();
+            CareerHistory ch = RC.CareerHistory.Find(id);
+            ViewBag.ID = id;
+            ViewBag.Organization = ch.Organization;
+            ViewBag.Industry = new SelectList(RC.Industry, "Id", "Name");
+            ViewBag.Since = ch.Since;
+            ViewBag.For = ch.For;
+            ViewBag.ThePost = ch.ThePost;
+            ViewBag.JobResponsibilities = ch.JobResponsibilities;
+            ViewBag.Achievements = ch.Achievements;
+            ViewBag.Wages = ch.Wages;
+            ViewBag.ReasonForLeaving = ch.ReasonForLeaving;
+
+            //RC.Dispose();
+            return PartialView();
+        }
+
+        [HttpPost]
+        public ActionResult ChangeCareerHistory(int? id, string Organization, int? Industry, DateTime Since, DateTime For, string ThePost,
+            string JobResponsibilities, string Achievements, string Wages, string ReasonForLeaving)
+        {
+            ResumeContext RC = new ResumeContext();
+            CareerHistory ch = RC.CareerHistory.Find(id);
+            ch.Organization = Organization;
+            ch.IndustryId = Industry;
+            ch.Since = Since;
+            ch.For = For;
+            ch.ThePost = ThePost;
+            ch.JobResponsibilities = JobResponsibilities;
+            ch.Achievements = Achievements;
+            ch.Wages = Wages;
+            ch.ReasonForLeaving = ReasonForLeaving;
+
+            RC.Entry(ch).State = System.Data.Entity.EntityState.Modified;
+            RC.SaveChanges();
+            ApplicationUserManager userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            ApplicationUser user = userManager.FindByEmail(User.Identity.Name);
+            ViewBag.CareerHistory = CareerHistory.GetItems(user.ResumeID);
+            RC.Dispose();
+            return PartialView("AddCareerHistory");
+        }
+
+
         [HttpPost]
         public ActionResult AddEducation(int? id, string EducationName, int? Level, int? Profile, DateTime EducationSince,
             DateTime EducationFor, string EducationFaculty, string EducationSpecialty, string EducationDiplomaQualification,
@@ -630,6 +731,68 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
+        public ActionResult DeleteEducation(int? id, int? id2)
+        {
+            ResumeContext RC = new ResumeContext();
+            Education e = RC.Education.Find(id);
+
+
+            RC.Education.Remove(e);
+            RC.SaveChanges();
+
+            ViewBag.Education = Education.GetItems(id2);
+            RC.Dispose();
+            return PartialView("AddEducation");
+        }
+
+
+        [HttpGet]
+        public ActionResult ChangeEducation(int? id)
+        {
+            ResumeContext RC = new ResumeContext();
+            Education e = RC.Education.Find(id);
+            ViewBag.ID = id;
+            ViewBag.EducationName = e.Name;
+            ViewBag.Level = new SelectList(RC.Level, "Id", "Name");
+            ViewBag.Profile = new SelectList(RC.Profile, "Id", "Name");
+            ViewBag.EducationFaculty = e.Faculty;
+            ViewBag.EducationSpecialty = e.Specialty;
+            ViewBag.EducationDiplomaQualification = e.DiplomaQualification;
+            ViewBag.FormOfTraining = new SelectList(RC.FormOfTraining, "Id", "Name");
+            
+            return PartialView();
+        }
+
+        [HttpPost]
+        public ActionResult ChangeEducation(int? id, string EducationName, int? Level, int? Profile, DateTime EducationSince,
+            DateTime EducationFor, string EducationFaculty, string EducationSpecialty, string EducationDiplomaQualification,
+            int? FormOfTraining)
+        {
+            ResumeContext RC = new ResumeContext();
+            Education education = RC.Education.Find(id);
+            education.Name = EducationName;
+            education.LevelId = Level;
+            education.ProfileId = Profile;
+            education.Since = EducationSince;
+            education.For = EducationFor;
+            education.Faculty = EducationFaculty;
+            education.Specialty = EducationSpecialty;
+            education.DiplomaQualification = EducationDiplomaQualification;
+            education.FormOfTrainingId = FormOfTraining;
+            RC.Entry(education).State = System.Data.Entity.EntityState.Modified;
+            RC.SaveChanges();
+            ApplicationUserManager userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            ApplicationUser user = userManager.FindByEmail(User.Identity.Name);
+            ViewBag.Education = Education.GetItems(user.ResumeID);
+            RC.Dispose();
+            return PartialView("AddEducation");
+        }
+
+
+
+
+
+        [HttpPost]
         public ActionResult AddAdditionalEducation(int? id, string AdditionalEducationName, int? TheTypeOfTraining, string AdditionalEducationYearOfCommencementOfStudy,
             string AdditionalEducationTheDurationOfTraining, string AdditionalEducationNameOfSchool, string AdditionalEducationTeacher)
         {
@@ -650,6 +813,62 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
+        public ActionResult DeleteAdditionalEducation(int? id, int? id2)
+        {
+            ResumeContext RC = new ResumeContext();
+            AdditionalEducation ae = RC.AdditionalEducation.Find(id);
+
+
+            RC.AdditionalEducation.Remove(ae);
+            RC.SaveChanges();
+
+            ViewBag.AdditionalEducation = AdditionalEducation.GetItems(id2);
+            RC.Dispose();
+            return PartialView("AddAdditionalEducation");
+        }
+
+        [HttpGet]
+        public ActionResult ChangeAdditionalEducation(int? id)
+        {
+            ResumeContext RC = new ResumeContext();
+            AdditionalEducation ae = RC.AdditionalEducation.Find(id);
+            ViewBag.ID = id;
+            ViewBag.AdditionalEducationName = ae.Name;
+            ViewBag.TheTypeOfTraining = new SelectList(RC.TheTypeOfTraining, "Id", "Name");
+            ViewBag.AdditionalEducationYearOfCommencementOfStudy = ae.YearOfCommencementOfStudy;
+            ViewBag.AdditionalEducationTheDurationOfTraining = ae.TheDurationOfTraining;
+            ViewBag.AdditionalEducationNameOfSchool = ae.NameOfSchool;
+            ViewBag.AdditionalEducationTeacher = ae.Teacher;
+            
+            return PartialView();
+        }
+
+        [HttpPost]
+        public ActionResult ChangeAdditionalEducation(int? id, string AdditionalEducationName, int? TheTypeOfTraining, string AdditionalEducationYearOfCommencementOfStudy,
+            string AdditionalEducationTheDurationOfTraining, string AdditionalEducationNameOfSchool, string AdditionalEducationTeacher)
+        {
+            ResumeContext RC = new ResumeContext();
+            AdditionalEducation AE = RC.AdditionalEducation.Find(id);
+            AE.Name = AdditionalEducationName;
+            AE.TheTypeOfTrainingId = TheTypeOfTraining;
+            AE.YearOfCommencementOfStudy = AdditionalEducationYearOfCommencementOfStudy;
+            AE.TheDurationOfTraining = AdditionalEducationTheDurationOfTraining;
+            AE.NameOfSchool = AdditionalEducationNameOfSchool;
+            AE.Teacher = AdditionalEducationTeacher;
+
+            RC.Entry(AE).State = System.Data.Entity.EntityState.Modified;
+            RC.SaveChanges();
+            ApplicationUserManager userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            ApplicationUser user = userManager.FindByEmail(User.Identity.Name);
+            ViewBag.AdditionalEducation = AdditionalEducation.GetItems(user.ResumeID);
+            RC.Dispose();
+            return PartialView("AddAdditionalEducation");
+        }
+
+
+
+
+        [HttpPost]
         public ActionResult AddLanguage(int? id, int? Language, int? TheLevelOfLanguageLearning)
         {
             ResumeContext RC = new ResumeContext();
@@ -663,6 +882,20 @@ namespace WebApplication1.Controllers
 
             RC.Dispose();
             return PartialView();
+        }
+
+        public ActionResult DeleteLanguage(int? id, int? id2)
+        {
+            ResumeContext RC = new ResumeContext();
+            KnowledgeOfForeignLanguages kn = RC.KnowledgeOfForeignLanguages.Find(id);
+
+
+            RC.KnowledgeOfForeignLanguages.Remove(kn);
+            RC.SaveChanges();
+
+            ViewBag.Language = KnowledgeOfForeignLanguages.GetItems(id2);
+            RC.Dispose();
+            return PartialView("AddLanguage");
         }
 
         [HttpPost]
@@ -679,6 +912,21 @@ namespace WebApplication1.Controllers
             RC.Dispose();
             return PartialView();
         }
+
+        public ActionResult DeleteComputer(int? id, int? id2)
+        {
+            ResumeContext RC = new ResumeContext();
+            Ability ae = RC.Ability.Find(id);
+
+
+            RC.Ability.Remove(ae);
+            RC.SaveChanges();
+
+            ViewBag.Ability = Ability.GetItems(id2);
+            RC.Dispose();
+            return PartialView("AddComputer");
+        }
+
 
         [HttpPost]
         public ActionResult AddPosition(int? id, int? ThePost, string WorkingConditions, string ProfessionalTasks,
@@ -697,7 +945,218 @@ namespace WebApplication1.Controllers
             //RC.Dispose();
             return PartialView();
         }
+
+        public ActionResult DeletePosition(int? id, int? id2, string WorkingConditions, string ProfessionalTasks,
+            string ForMoreInformation)
+        {
+            ResumeContext RC = new ResumeContext();
+            DesiredPosition dp = RC.DesiredPosition.Find(id);
+
+
+            RC.DesiredPosition.Remove(dp);
+            RC.SaveChanges();
+            ViewBag.DesiredPosition = DesiredPosition.GetItems(id2);
+            ViewBag.WorkingConditions = WorkingConditions;
+            ViewBag.ProfessionalTasks = ProfessionalTasks;
+            ViewBag.ForMoreInformation = ForMoreInformation;
+            RC.Dispose();
+            return PartialView("AddPosition");
+        }
+
+
+
+        public ActionResult DocxCreate()
+        {
+
+            
+            try
+            {
+                ApplicationUserManager userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                ApplicationUser user = userManager.FindByEmail(User.Identity.Name);
+
+                ResumeContext RC = new ResumeContext();
+                Resume resume = RC.Resume.Find(user.ResumeID);
+
+                TableContent HistoryTC = new TableContent("CareerHistory");
+                foreach (CareerHistoryItem item in CareerHistory.GetItems(resume.Id))
+                {
+                    HistoryTC.AddRow(new FieldContent("Organization", item.Organization),
+                    new FieldContent("Industry", item.Industry),
+                    new FieldContent("Time", item.Since.Day + "." + item.Since.Month + "." + item.Since.Year + "/"
+                    + item.For.Day + "." + item.For.Month + "." + @item.For.Year),
+                    new FieldContent("ThePost", item.ThePost), new FieldContent("JobResponsibilities", item.JobResponsibilities),
+                    new FieldContent("Achievements", item.Achievements), new FieldContent("Wages", item.Wages),
+                    new FieldContent("ReasonForLeaving", item.ReasonForLeaving));
+                }
+                HistoryTC.AddRow(new FieldContent("Organization", ""), new FieldContent("Industry", ""),
+                    new FieldContent("Time", ""), new FieldContent("ThePost", ""), new FieldContent("JobResponsibilities", ""),
+                    new FieldContent("Achievements", ""), new FieldContent("Wages", ""), new FieldContent("ReasonForLeaving", ""));
+
+
+                TableContent EducationTC = new TableContent("Education");
+                foreach (EducationItem item in Education.GetItems(resume.Id))
+                {
+                    EducationTC.AddRow(new FieldContent("Name", item.Name), new FieldContent("LevelProfile", item.Level + "/" + item.Profile),
+                    new FieldContent("Time2", item.Since.Day + "." + item.Since.Month + "." + item.Since.Year + "/"
+                    + item.For.Day + "." + item.For.Month + "." + @item.For.Year),
+                    new FieldContent("Faculty", item.Faculty), new FieldContent("Specialty", item.Specialty),
+                    new FieldContent("DiplomaQualification", item.DiplomaQualification),
+                    new FieldContent("FormOfTraining", item.FormOfTraining));
+                }
+                EducationTC.AddRow(new FieldContent("Name", ""), new FieldContent("LevelProfile", ""),
+                    new FieldContent("Time2", ""), new FieldContent("Faculty", ""), new FieldContent("Specialty", ""),
+                    new FieldContent("DiplomaQualification", ""), new FieldContent("FormOfTraining", ""));
+
+
+                TableContent AdditionalEducationTC = new TableContent("AdditionalEducation");
+                foreach (AdditionalEducationItem item in AdditionalEducation.GetItems(resume.Id))
+                {
+                    AdditionalEducationTC.AddRow(new FieldContent("Name", item.Name), new FieldContent("TheTypeOfTraining", item.TheTypeOfTraining),
+                    new FieldContent("YearOfCommencementOfStudy", item.YearOfCommencementOfStudy), new FieldContent("TheDurationOfTraining", item.TheDurationOfTraining),
+                    new FieldContent("NameOfSchool", item.NameOfSchool), new FieldContent("Teacher", item.Teacher));
+                }
+                AdditionalEducationTC.AddRow(new FieldContent("Name", ""), new FieldContent("TheTypeOfTraining", ""),
+                    new FieldContent("YearOfCommencementOfStudy", ""), new FieldContent("TheDurationOfTraining", ""),
+                    new FieldContent("NameOfSchool", ""), new FieldContent("Teacher", ""));
+
+                TableContent KnowledgeOfForeignLanguagesTC = new TableContent("KnowledgeOfForeignLanguages");
+                foreach (KnowledgeOfForeignLanguagesItem item in KnowledgeOfForeignLanguages.GetItems(resume.Id))
+                {
+                    KnowledgeOfForeignLanguagesTC.AddRow(new FieldContent("Language", item.Language),
+                        new FieldContent("TheLevelOfLanguageLearning", item.TheLevelOfLanguageLearning));
+                }
+                KnowledgeOfForeignLanguagesTC.AddRow(new FieldContent("Language", ""),
+                    new FieldContent("TheLevelOfLanguageLearning", ""));
+
+
+                TableContent AbilityTC = new TableContent("Ability");
+                foreach (AbilityItem item in Ability.GetItems(resume.Id))
+                {
+                    AbilityTC.AddRow(new FieldContent("Skill", item.Skill), new FieldContent("SkillLevel", item.SkillLevel));
+                }
+                AbilityTC.AddRow(new FieldContent("Skill", ""), new FieldContent("SkillLevel", ""));
+
+                ListContent list = new ListContent("List");
+                foreach (DesiredPositionItem item in DesiredPosition.GetItems(resume.Id))
+                {
+                    list.AddItem(new FieldContent("ThePost", item.ThePost));
+                }
+                list.AddItem(new FieldContent("ThePost", ""));
+
+                ImageContent image = new ImageContent("Image", resume.ImageByte);
+                FieldContent SC;
+                FieldContent TP;
+                FieldContent SB;
+                FieldContent SP;
+                if (resume.SalaryChek)
+                {
+                    SC = new FieldContent("SalaryChek", "+");
+                }
+                else
+                {
+                    SC = new FieldContent("SalaryChek", "");
+                }
+                if (resume.ThePercentage)
+                {
+                    TP = new FieldContent("ThePercentage", "+");
+                }
+                else
+                {
+                    TP = new FieldContent("ThePercentage", "");
+                }
+                if (resume.SalaryBonus)
+                {
+                    SB = new FieldContent("SalaryBonus", "+");
+                }
+                else
+                {
+                    SB = new FieldContent("SalaryBonus", "");
+                }
+                if (resume.SalaryPercentage)
+                {
+                    SP = new FieldContent("SalaryPercentage", "+");
+                }
+                else
+                {
+                    SP = new FieldContent("SalaryPercentage", "");
+                }
+
+                var valuesToFill = new Content(
+                    list,
+                    image,
+                    new FieldContent("FIO", resume.Surname + " " + resume.Name + " " + resume.MiddleName),
+                    new FieldContent("DateOfBirth", resume.DateOfBirth.Day + "." + resume.DateOfBirth.Month + "." + resume.DateOfBirth.Year),
+                    new FieldContent("MobilePhone", resume.WorkNumber),
+                    new FieldContent("HomePhone", resume.HomeNumber),
+                    new FieldContent("Gender", resume.Gender),
+                    new FieldContent("Citizenship", resume.Citizenship),
+                    new FieldContent("MaritalStatus", resume.MaritalStatus),
+                    new FieldContent("TheCompositionOfTheFamily", resume.TheCompositionOfTheFamily),
+                    new FieldContent("DriversLicense", resume.DriversLicense),
+                    new FieldContent("CarBrand", resume.CarBrand),
+                    new FieldContent("Adress", resume.Adress),
+                    new FieldContent("Email", user.Email),
+                    HistoryTC,
+                    EducationTC,
+                    AdditionalEducationTC,
+                    KnowledgeOfForeignLanguagesTC,
+                    AbilityTC,
+                    new FieldContent("TheBusinessAndPsychologicalQualities", resume.TheBusinessAndPsychologicalQualities),
+                    new FieldContent("ProfessionalSkills", resume.ProfessionalSkills),
+                    new FieldContent("Hobbies", resume.Hobbies),
+                    new FieldContent("WorkingConditions", resume.WorkingConditions),
+                    new FieldContent("ProfessionalTasks", resume.ProfessionalTasks),
+                    new FieldContent("ForMoreInformation", resume.ForMoreInformation),
+                    new FieldContent("Salary", resume.Salary),
+                    new FieldContent("MinSalary", resume.MinSalary),
+                    new FieldContent("NormSalary", resume.NormSalary),
+                    //
+                    SC,//new FieldContent("SalaryChek", ""),
+                    TP,//new FieldContent("ThePercentage", ""),
+                    SB,//new FieldContent("SalaryBonus", ""),
+                    SP,//new FieldContent("SalaryPercentage", ""),
+                       //
+                    new FieldContent("Comment", resume.Comment),
+
+
+                    new FieldContent("Income", resume.Income),
+                    new FieldContent("TheProspectOfJobGrowth", resume.TheProspectOfJobGrowth),
+                    new FieldContent("ToGetTheNecessaryExperience", resume.ToGetTheNecessaryExperience),
+                    new FieldContent("ToImproveTheProfessionalLevel", resume.ToImproveTheProfessionalLevel),
+                    new FieldContent("ToDemonstrateTheirAbilities", resume.ToDemonstrateTheirAbilities),
+                    new FieldContent("AHighLevelOfAutonomy", resume.AHighLevelOfAutonomy),
+                    new FieldContent("TheStabilityOfTheCompany", resume.TheStabilityOfTheCompany),
+                    new FieldContent("ActivitiesOfTheCompany", resume.ActivitiesOfTheCompany),
+                    new FieldContent("WorkingConditionsInTheWorkplace", resume.WorkingConditionsInTheWorkplace),
+                    new FieldContent("RelationsWithTheLeadership", resume.RelationsWithTheLeadership),
+                    new FieldContent("SomethingElse", resume.SomethingElse),
+                    new FieldContent("Date", DateTime.Now.Day + "." + DateTime.Now.Month + "." + DateTime.Now.Year)
+                    );
+
+                //
+                System.IO.File.Delete(Server.MapPath("~/Files/Resume.docx"));
+                System.IO.File.Copy(Server.MapPath("~/Files/Template.docx"), Server.MapPath("~/Files/Resume.docx"));
+                //File.Copy("ResumeTemplate.docx", "~/Files/Resume.docx");
+                using (var outputDocument = new TemplateProcessor(Server.MapPath("~/Files/Resume.docx")).SetRemoveContentControls(true))
+                {
+                    outputDocument.FillContent(valuesToFill);
+                    outputDocument.SaveChanges();
+                    outputDocument.Dispose();
+                    //var doc = System.IO.File.ReadAllBytes("~/Files/Resume.docx");
+                }
+                return File(System.IO.File.ReadAllBytes(Server.MapPath("~/Files/Resume.docx")), "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "MyResume.docx");
+            }//"D:/3 курс 2 семестр/РПИ/WebApplication1/WebApplication1/App_Data/Resume.docx"
+            catch
+            {
+                return View("Eror");
+            }
+            
+        }
+
+
         
+
+
 
         #region Вспомогательные приложения
         // Используется для защиты от XSRF-атак при добавлении внешних имен входа

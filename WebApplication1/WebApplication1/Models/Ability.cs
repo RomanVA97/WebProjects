@@ -25,6 +25,7 @@ namespace WebApplication1.Models
                 AbilityItem obj = new AbilityItem();
                 try
                 {
+                    obj.Id = item.Id;
                     obj.Skill = RC.Skill.Find(item.SkillId).Name;
                     obj.SkillLevel = RC.SkillLevel.Find(item.SkillLevelId).Name;
 

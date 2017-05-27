@@ -7,6 +7,7 @@ namespace WebApplication1.Models
 {
     public class CareerHistoryItem
     {
+        public int? Id { get; set; }
         public string Organization { get; set; }
         public string Industry { get; set; }
         public DateTime Since { get; set; }

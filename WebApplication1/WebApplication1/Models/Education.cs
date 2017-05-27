@@ -33,6 +33,7 @@ namespace WebApplication1.Models
             foreach(Education item in listE)
             {
                 EducationItem obj = new EducationItem();
+                obj.Id = item.Id;
                 obj.Name = item.Name;
                 obj.Level = RC.Level.Find(item.LevelId).Name;
                 obj.Profile = RC.Profile.Find(item.ProfileId).Name;

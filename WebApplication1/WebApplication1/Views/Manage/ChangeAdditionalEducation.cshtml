@@ -1,0 +1,42 @@
+﻿
+<div class="" id="ChangeAdditionalEducationDialog" title="Введите данные">
+
+    <div class="col-md-6">
+        
+        <div class="form-group" hidden="hidden">
+            <label for="Id">Уникальный идентификатор пользователя</label>
+            <input type="text" readonly="readonly" class="form-control" id="ChangeAdditionalEducationId" value=@ViewBag.ID />
+        </div>
+
+        <div class="form-group">
+            <label for="InputAdditionalEducationName">DНазвание учебного курса/семинара/тренинга</label>
+            <input type="text" name="AdditionalEducationName" value="@ViewBag.AdditionalEducationName" class="form-control" id="ChangeInputAdditionalEducationName">
+        </div>
+
+        <label for="InputTheTypeOfTraining">Тип обучения</label>
+        @Html.DropDownList("TheTypeOfTraining", ViewBag.TheTypeOfTraining as SelectList, new { id = "ChangeInputTheTypeOfTraining", @class = "form-control" })
+
+        <div class="form-group">
+            <label for="InputAdditionalEducationYearOfCommencementOfStudy">Год начала обучения</label>
+            <input type="text" name="AdditionalEducationYearOfCommencementOfStudy" value="@ViewBag.AdditionalEducationYearOfCommencementOfStudy" class="form-control" id="ChangeInputAdditionalEducationYearOfCommencementOfStudy">
+        </div>
+
+    </div>
+    <div class="col-md-6">
+
+        <div class="form-group">
+            <label for="InputAdditionalEducationTheDurationOfTraining">Длительность обучения</label>
+            <input type="text" name="AdditionalEducationTheDurationOfTraining" value="@ViewBag.AdditionalEducationTheDurationOfTraining" class="form-control" id="ChangeInputAdditionalEducationTheDurationOfTraining">
+        </div>
+        <div class="form-group">
+            <label for="InputAdditionalEducationNameOfSchool">Название бизнес-школы</label>
+            <input type="text" name="AdditionalEducationNameOfSchool" value="@ViewBag.AdditionalEducationNameOfSchool" class="form-control" id="ChangeInputAdditionalEducationNameOfSchool">
+        </div>
+        <div class="form-group">
+            <label for="InputAdditionalEducationTeacher">Преподаватель(если можете указать)</label>
+            <input type="text" name="AdditionalEducationTeacher" value="@ViewBag.AdditionalEducationTeacher" class="form-control" id="ChangeInputAdditionalEducationTeacher">
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,36 @@
+﻿@using WebApplication1.Models;
+
+
+<div id="info">
+    
+    <div class="col-md-9">
+        @foreach (Resume item in ViewBag.Img)
+            {
+
+            <div class="col-md-9">
+                <div class="col-md-4">
+                    @Html.Raw("<img style='width:140px; height:140px;' class='img-rounded' src=\"data:image/jpeg;base64," + Convert.ToBase64String(item.ImageByte) + "\" />")
+                </div>
+                <div class="col-md-8">
+                    <p>@item.Surname @item.Name @item.MiddleName</p>
+                    <p>Дата рождения: @item.DateOfBirth.Day.@item.DateOfBirth.Month.@item.DateOfBirth.Year</p>
+                    <p>Искомые должности</p>
+                    <ul>
+                        @foreach (DesiredPositionItem item2 in ViewBag.DesiredPosition)
+                        {
+                            if (item2.Id == item.Id)
+                            {
+                                <li>@item2.ThePost</li>
+                            }
+                        }
+                    </ul>
+                    <button type="button" class="btn btn-success margBtn" onclick="MoreInformation(@item.Id)">Подробнее</button>
+
+                </div>
+
+            </div>
+
+        }
+    </div>
+</div>
+

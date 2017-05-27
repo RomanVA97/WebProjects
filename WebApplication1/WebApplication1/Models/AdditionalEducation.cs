@@ -28,6 +28,7 @@ namespace WebApplication1.Models
             {
 
                 AdditionalEducationItem obj = new AdditionalEducationItem();
+                obj.Id = item.Id;
                 obj.Name = item.Name;
                 obj.TheTypeOfTraining = RC.TheTypeOfTraining.Find(item.TheTypeOfTrainingId).Name;
                 obj.YearOfCommencementOfStudy = item.YearOfCommencementOfStudy;

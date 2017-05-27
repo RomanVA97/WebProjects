@@ -21,7 +21,7 @@ namespace WebApplication1.Models
             foreach(DesiredPosition item in listD)
             {
                 DesiredPositionItem obj = new DesiredPositionItem();
-                
+                obj.PostId = item.Id;
                 obj.ThePost = RC.ThePost.Find(item.ThePostId).Name;
                 list.Add(obj);
             }
@@ -39,6 +39,7 @@ namespace WebApplication1.Models
                 DesiredPositionItem obj = new DesiredPositionItem();
                 obj.ThePost = RC.ThePost.Find(item.ThePostId).Name;
                 obj.Id = item.ResumeId;
+                obj.PostId = item.Id;
                 list.Add(obj);
             }
 

@@ -25,7 +25,7 @@ namespace WebApplication1.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("ResumeUsersContext", throwIfV1Schema: false)
+            : base("ResumeContext", throwIfV1Schema: false)
         {
         }
 

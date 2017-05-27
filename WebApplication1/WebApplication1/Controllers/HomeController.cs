@@ -12,12 +12,39 @@ namespace WebApplication1.Controllers
         public ActionResult Index()
         {
             ResumeContext RC = new ResumeContext();
-
-            ViewBag.Img = RC.Resume.ToList();
+            ViewBag.ThePost = new SelectList(RC.ThePost, "Id", "Name");
+            
+            ViewBag.Img = RC.Resume.Where(c=>c.ImageByte!=null).ToList();
             ViewBag.DesiredPosition = DesiredPosition.All();
 
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Filter(int? id)
+        {
+            ResumeContext RC = new ResumeContext();
+
+            //ViewBag.Img = RC.Resume.Where(c => c.ImageByte != null).ToList();
+            ViewBag.DesiredPosition = DesiredPosition.All();
+            List<Resume> list = new List<Resume>();
+            List<DesiredPosition> DP = RC.DesiredPosition.ToList();
+            List<DesiredPosition> DP2;
+            ViewBag.ThePost = new SelectList(RC.ThePost, "Id", "Name");
+
+            foreach (Resume item in RC.Resume.Where(c => c.ImageByte != null).ToList())
+            {
+                DP2 = DP.Where(c => c.ResumeId == item.Id).ToList();
+                foreach (DesiredPosition item2 in DP2)
+                {
+                    if (item2.ThePostId == id) list.Add(item);
+                }
+            }
+            ViewBag.Img = list;
+            //return View("Index");
+            return PartialView();
+        }
+
 
         [HttpPost]
         public ActionResult MoreInformation(int? id)

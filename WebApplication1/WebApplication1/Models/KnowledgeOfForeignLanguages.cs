@@ -24,6 +24,7 @@ namespace WebApplication1.Models
             foreach(KnowledgeOfForeignLanguages item in ListK)
             {
                 KnowledgeOfForeignLanguagesItem obj = new KnowledgeOfForeignLanguagesItem();
+                obj.Id = item.Id;
                 obj.Language = RC.Language.Find(item.LanguageId).Name;
                 obj.TheLevelOfLanguageLearning = RC.TheLevelOfLanguageLearning.Find(item.TheLevelOfLanguageLearningId).Name;
                 list.Add(obj);

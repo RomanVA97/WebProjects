@@ -1,0 +1,345 @@
+﻿@using WebApplication1.Models;
+
+<div id="More">
+    <div class="row col-md-12 marg">
+        <form role="form" method="post" enctype="multipart/form-data">
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="InputLastName">Фамилия</label>
+                    <input type="text" readonly name="LastName" class="form-control" id="InputLastName" value=@ViewBag.LastName>
+                </div>
+                <div class="form-group">
+                    <label for="InputName">Имя</label>
+                    <input type="text" readonly name="Name" class="form-control" id="InputName" value=@ViewBag.Name>
+                </div>
+                <div class="form-group">
+                    <label for="InputMiddleName">Отчество</label>
+                    <input type="text" readonly name="MiddleName" class="form-control" id="InputMiddleName" value=@ViewBag.MiddleName>
+                </div>
+
+                <div class="form-group">
+                    <label for="InputAdress">Адрес</label>
+                    <input type="text" readonly name="Adress" class="form-control" id="InputAdress" value=@ViewBag.Adress>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+
+                <div class="form-group">
+                    <label for="InputMobileNumber">Мобильный телефон</label>
+                    <input type="text" readonly name="MobileNumber" class="form-control" id="InputMobileNumber" value=@ViewBag.MobileNumber>
+                </div>
+                <div class="form-group">
+                    <label for="InputHomeNumber">Домашний телефон</label>
+                    <input type="text" readonly name="HomeNumber" class="form-control" id="InputHomeNumber" value=@ViewBag.HomeNumber>
+                </div>
+
+                <div class="form-group">
+                    <label for="InputCitizenship">Гражданство</label>
+                    <input type="text" readonly name="Citizenship" class="form-control" id="InputCitizenship" value=@ViewBag.Citizenship>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+
+                <div class="form-group">
+                    <label for="InputTheCompositionOfTheFamily">Состав семьи.Возраст детей</label>
+                    <input type="text" readonly name="TheCompositionOfTheFamily" class="form-control" id="InputTheCompositionOfTheFamily" value=@ViewBag.TheCompositionOfTheFamily>
+                </div>
+
+                <div class="form-group">
+                    <label for="InputDriversLicense">Водительские права(категории)</label>
+                    <input type="text" readonly name="DriversLicense" class="form-control" id="InputDriversLicense" value=@ViewBag.DriversLicense>
+                </div>
+
+                <div class="form-group">
+                    <label for="InputCarBrand">Марка автомобиля</label>
+                    <input type="text" readonly name="CarBrand" class="form-control" id="InputCarBrand" value=@ViewBag.CarBrand>
+                </div>
+
+
+
+            </div>
+
+        </form>
+
+
+    </div>
+
+    <div class="col-md-12 marg">
+
+        <h3>История карьеры </h3>
+        <div id="CH">
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td>Организация</td>
+                    <td>Отрасль</td>
+                    <td>Деятельность</td>
+                    <td>Должность</td>
+                    <td>Должностные обязанности</td>
+                    <td>Достижения</td>
+                    <td>Заработная плата</td>
+                    <td>Причина ухода</td>
+                </tr>
+                @foreach (CareerHistoryItem item in ViewBag.CareerHistory)
+                {
+                    <tr>
+                        <td>@item.Organization</td>
+                        <td>@item.Industry</td>
+                        <td>@item.Since.Day.@item.Since.Month.@item.Since.Year / @item.For.Day.@item.For.Month.@item.For.Year</td>
+                        <td>@item.ThePost</td>
+                        <td>@item.JobResponsibilities</td>
+                        <td>@item.Achievements</td>
+                        <td>@item.Wages</td>
+                        <td>@item.ReasonForLeaving</td>
+                    </tr>
+                }
+            </table>
+
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <h3>Квалификационная карта </h3>
+        <div id="E">
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td>Название уч. заведения</td>
+                    <td>Уровень/профиль</td>
+                    <td>Длительность</td>
+                    <td>Факультет</td>
+                    <td>Специальность</td>
+                    <td>Квалификация по диплому</td>
+                    <td>Форма обучения</td>
+                </tr>
+
+                @foreach (EducationItem item in ViewBag.Education)
+            {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Level / @item.Profile</td>
+                        <td>@item.Since.Day.@item.Since.Month.@item.Since.Year / @item.For.Day.@item.For.Month.@item.For.Year</td>
+                        <td>@item.Faculty</td>
+                        <td>@item.Specialty</td>
+                        <td>@item.DiplomaQualification</td>
+                        <td>@item.FormOfTraining</td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+
+    </div>
+
+    <div class="col-md-12">
+        <h3>Дополнительное образование</h3>
+        <div id="AE">
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td>Название учебного курса/семинара/тренинга</td>
+                    <td>Тип обучения</td>
+                    <td>Год начала обучения</td>
+                    <td>Длительность обучения</td>
+                    <td>Название бизнес-школы</td>
+                    <td>Преподаватель</td>
+                </tr>
+
+                @foreach (AdditionalEducationItem item in ViewBag.AdditionalEducation)
+            {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.TheTypeOfTraining</td>
+                        <td>@item.YearOfCommencementOfStudy</td>
+                        <td>@item.TheDurationOfTraining</td>
+                        <td>@item.NameOfSchool</td>
+                        <td>@item.Teacher</td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <h3>Знание иностранных языков </h3>
+        <div id="L">
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td>Язык</td>
+                    <td>Уровень владения</td>
+                </tr>
+
+                @foreach (KnowledgeOfForeignLanguagesItem item in ViewBag.Lang)
+            {
+                    <tr>
+                        <td>@item.Language</td>
+                        <td>@item.TheLevelOfLanguageLearning</td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+
+    </div>
+
+    <div class="col-md-12">
+        <h3>Знание компьютера </h3>
+        <div id="C">
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td>Программа/технология</td>
+                    <td>Уровень владения</td>
+                </tr>
+                @foreach (AbilityItem item in ViewBag.Ability)
+            {
+                    <tr>
+                        <td>@item.Skill</td>
+                        <td>@item.SkillLevel</td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <h3>Навыки и качества</h3>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="InputTheBusinessAndPsychologicalQualities">Деловые и психологические качества</label>
+                <textarea readonly name="TheBusinessAndPsychologicalQualities" id="InputTheBusinessAndPsychologicalQualities" class="form-control" rows="3">@ViewBag.TheBusinessAndPsychologicalQualities</textarea>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="InputProfessionalSkills">Профессиональные навыки</label>
+                <textarea readonly name="ProfessionalSkills" id="InputProfessionalSkills" class="form-control" rows="3">@ViewBag.ProfessionalSkills</textarea>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="InputHobbies">Увлечения</label>
+                <textarea readonly name="Hobbies" id="InputHobbies" class="form-control" rows="3">@ViewBag.Hobbies</textarea>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-12">
+        <h3>Пожелания по искомой работе </h3>
+
+        <div id="P">
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td>Условия труда</td>
+                    <td>Профессиональные задачи которые способны решать наиболее компетентно в настоящее время</td>
+                    <td>Дополнительные сведения,которые я считаю необходимым сообщить</td>
+                </tr>
+
+                <tr>
+                    <td width="300px"><textarea readonly name="WorkingConditions" id="InputWorkingConditions" class="form-control" rows="3">@ViewBag.WorkingConditions</textarea></td>
+                    <td width="300px"><textarea readonly name="ProfessionalTasks" id="InputProfessionalTasks" class="form-control" rows="3">@ViewBag.ProfessionalTasks</textarea></td>
+                    <td width="300px"><textarea readonly name="ForMoreInformation" id="InputForMoreInformation" class="form-control" rows="3">@ViewBag.ForMoreInformation</textarea></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <h3>Пожелания по условиям оплаты труда</h3>
+        <div class="form-group">
+            <label for="InputSalary">Размер заработной платы(у.е.)</label>
+            <input type="text" readonly name="Salary" class="form-control" id="InputSalary" value=@ViewBag.Salary>
+        </div>
+        <div class="form-group">
+            <label for="InputMinSalary">Минимальный, на испытательный срок</label>
+            <input type="text" readonly name="MinSalary" class="form-control" id="InputMinSalary" value=@ViewBag.MinSalary>
+        </div>
+        <div class="form-group">
+            <label for="InputNormSalary">Желаемый, после испытательного срока</label>
+            <input type="text" readonly name="NormSalary" class="form-control" id="InputNormSalary" value=@ViewBag.NormSalary>
+        </div>
+
+        <h4>Желаемая система оплаты</h4>
+        @if (@ViewBag.SalaryChek)
+        { <p>Оклад</p>}
+        @if (@ViewBag.ThePercentage)
+        { <p>Процент</p>}
+        @if (@ViewBag.SalaryBonus)
+        { <p>Оклад+премия</p>}
+        @if (@ViewBag.SalaryPercentage)
+        { <p>Оклад+процент</p>}
+        
+        <div class="form-group">
+            <label for="InputComment">Комментарии</label>
+            <input type="text" readonly name="Comment" class="form-control" id="InputComment" value=@ViewBag.Comment>
+        </div>
+
+    </div>
+
+    <div class="col-md-12">
+        <h3>Какой фактор является существенным при выборе новой работы</h3>
+        <h4>Факторы по приоритету значимости от 1 до 10, где 1 – самый значимый, а 10 – наименее значимый</h4>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="InputIncome">Заработок</label>
+                <input type="text" readonly name="Income" class="form-control" id="InputIncome" value=@ViewBag.Income>
+            </div>
+            <div class="form-group">
+                <label for="InputTheProspectOfJobGrowth">Перспектива должностного роста</label>
+                <input type="text" readonly name="TheProspectOfJobGrowth" class="form-control" id="InputTheProspectOfJobGrowth" value=@ViewBag.TheProspectOfJobGrowth>
+            </div>
+            <div class="form-group">
+                <label for="InputToGetTheNecessaryExperience">Получить необходимый опыт</label>
+                <input type="text" readonly name="ToGetTheNecessaryExperience" class="form-control" id="InputToGetTheNecessaryExperience" value=@ViewBag.ToGetTheNecessaryExperience>
+            </div>
+            <div class="form-group">
+                <label for="InputToImproveTheProfessionalLevel">Повысить профессиональный уровень</label>
+                <input type="text" readonly name="ToImproveTheProfessionalLevel" class="form-control" id="InputToImproveTheProfessionalLevel" value=@ViewBag.ToImproveTheProfessionalLevel>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="InputToDemonstrateTheirAbilities">Проявить свои способности</label>
+                <input type="text" readonly name="ToDemonstrateTheirAbilities" class="form-control" id="InputToDemonstrateTheirAbilities" value=@ViewBag.ToDemonstrateTheirAbilities>
+            </div>
+            <div class="form-group">
+                <label for="InputAHighLevelOfAutonomy">Высокий уровень самостоятельности</label>
+                <input type="text" readonly name="AHighLevelOfAutonomy" class="form-control" id="InputAHighLevelOfAutonomy" value=@ViewBag.AHighLevelOfAutonomy>
+            </div>
+            <div class="form-group">
+                <label for="InputTheStabilityOfTheCompany">Стабильность фирмы</label>
+                <input type="text" readonly name="TheStabilityOfTheCompany" class="form-control" id="InputTheStabilityOfTheCompany" value=@ViewBag.TheStabilityOfTheCompany>
+            </div>
+            <div class="form-group">
+                <label for="InputActivitiesOfTheCompany">Направления деятельности фирмы</label>
+                <input type="text" readonly name="ActivitiesOfTheCompany" class="form-control" id="InputActivitiesOfTheCompany" value=@ViewBag.ActivitiesOfTheCompany>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="InputWorkingConditionsInTheWorkplace">Условия труда на рабочем месте</label>
+                <input type="text" readonly name="WorkingConditionsInTheWorkplace" class="form-control" id="InputWorkingConditionsInTheWorkplace" value=@ViewBag.WorkingConditionsInTheWorkplace>
+            </div>
+            <div class="form-group">
+                <label for="InputRelationsWithTheLeadership">Отношения с руководством</label>
+                <input type="text" readonly name="RelationsWithTheLeadership" class="form-control" id="InputRelationsWithTheLeadership" value=@ViewBag.RelationsWithTheLeadership>
+            </div>
+            <div class="form-group">
+                <label for="Input">Что-то еще(укажите, что именно)</label>
+                <input type="text" readonly name="SomethingElse" class="form-control" id="InputSomethingElse" value=@ViewBag.SomethingElse>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</div>

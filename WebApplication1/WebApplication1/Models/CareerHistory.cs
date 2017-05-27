@@ -30,7 +30,7 @@ namespace WebApplication1.Models
             foreach (CareerHistory item in list)
             {
                 CareerHistoryItem obj = new CareerHistoryItem();
-
+                obj.Id = item.Id;
                 obj.Organization = item.Organization;
                 obj.Industry = RC.Industry.Find(item.IndustryId).Name;
                 obj.Since = item.Since;

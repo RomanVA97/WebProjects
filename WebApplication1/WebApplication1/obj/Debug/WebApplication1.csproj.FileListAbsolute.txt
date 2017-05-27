@@ -1,3 +1,123 @@
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\csc.exe
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\csc.exe.config
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\csc.rsp
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\csi.exe
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\csi.rsp
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\System.AppContext.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\System.Collections.Immutable.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\System.IO.FileSystem.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\System.Reflection.Metadata.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\vbc.exe
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\vbc.exe.config
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\vbc.rsp
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe
+C:\GitRepository\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe.config
+C:\GitRepository\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
+C:\GitRepository\WebApplication1\WebApplication1\bin\WebApplication1.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+C:\GitRepository\WebApplication1\WebApplication1\bin\Antlr3.Runtime.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\DocumentFormat.OpenXml.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\EntityFramework.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.AI.Agent.Intercept.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.AI.DependencyCollector.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.AI.Web.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.AI.WindowsServer.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsights.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Core.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Owin.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Cookies.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Facebook.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Google.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.OAuth.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Newtonsoft.Json.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Owin.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\System.Web.Helpers.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\System.Web.Mvc.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\System.Web.Optimization.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\System.Web.Razor.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\System.Web.WebPages.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\TemplateEngine.Docx.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\WebGrease.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\System.Web.Helpers.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\System.Web.Mvc.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\System.Web.Optimization.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\System.Web.Razor.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\System.Web.WebPages.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\Antlr3.Runtime.pdb
+C:\GitRepository\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\EntityFramework.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Core.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Owin.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Facebook.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Cookies.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.OAuth.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Google.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsights.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.AI.DependencyCollector.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.AI.WindowsServer.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\Microsoft.AI.Web.xml
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\System.Web.Helpers.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\System.Web.Mvc.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\System.Web.Optimization.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\System.Web.Razor.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\System.Web.WebPages.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\System.Web.WebPages.Deployment.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\System.Web.WebPages.Razor.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\EntityFramework.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\EntityFramework.SqlServer.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\Microsoft.AspNet.Identity.Core.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\Microsoft.Owin.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\Microsoft.Owin.Security.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\Microsoft.Owin.Security.Facebook.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\Microsoft.Owin.Security.Google.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\Microsoft.Owin.Security.Twitter.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\bin\ru\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\GitRepository\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.InitialCreate.resources
+C:\GitRepository\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.DataMigration.resources
+C:\GitRepository\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.DataMigration1.resources
+C:\GitRepository\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.DataMigration3.resources
+C:\GitRepository\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.GenerateResource.Cache
+C:\GitRepository\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
+C:\GitRepository\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\roslyn\csc.exe
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\roslyn\csc.exe.config
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\roslyn\csc.rsp
@@ -28,6 +148,7 @@ D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\WebApp
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\WebApplication1.dll
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\WebApplication1.pdb
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\Antlr3.Runtime.dll
+D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\DocumentFormat.OpenXml.dll
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\EntityFramework.dll
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.dll
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\Microsoft.AI.Agent.Intercept.dll
@@ -60,6 +181,7 @@ D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\System
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.dll
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\System.Web.WebPages.dll
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.dll
+D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\TemplateEngine.Docx.dll
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\WebGrease.dll
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\System.Web.Helpers.xml
@@ -109,11 +231,11 @@ D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\ru\Mic
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\ru\Microsoft.Owin.Security.Google.resources.dll
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\ru\Microsoft.Owin.Security.Twitter.resources.dll
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\bin\ru\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
-D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.InitialCreate.resources
-D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.GenerateResource.Cache
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.DataMigration.resources
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.DataMigration1.resources
-D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
 D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.DataMigration3.resources
+D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.GenerateResource.Cache
+D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
+D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+D:\3 курс 2 семестр\РПИ\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache

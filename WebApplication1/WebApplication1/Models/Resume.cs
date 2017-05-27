@@ -36,6 +36,7 @@ namespace WebApplication1.Models
         public string WorkingConditions { get; set; }
         public string ProfessionalTasks { get; set; }
         public string ForMoreInformation { get; set; }
+
         public string Salary { get; set; }
         public string MinSalary { get; set; }
         public string NormSalary { get; set; }
