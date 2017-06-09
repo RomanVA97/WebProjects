@@ -2,8 +2,10 @@
 @{
     ViewBag.Title = "Резюме";
 }
+
+
 <div class="row col-md-12 marg">
-    <h1>Обязательно загрузите картинку</h1>
+    <a href="~/Manage/DocxCreate" class="btn btn-primary btn-lg active" role="button">Сгенерировать файл</a>
 </div>
 <div class="row col-md-12 marg">
     <form role="form" method="post"  enctype="multipart/form-data">
@@ -86,7 +88,7 @@
                 <input type="text" name="CarBrand" class="form-control" id="InputCarBrand" value=@ViewBag.CarBrand>
             </div>
 
-            <div class="editor-label">Фотография</div>
+            <div class="editor-label">Фотография(Обязательное)</div>
             <div class="editor-field">
                 <input type="file" name="uploadImage" id="uploadImage" />
                 <br />
@@ -106,7 +108,7 @@
 
 
 </div>
-<hr />
+
 <div class="col-md-12 marg">
     
     <h3>История карьеры </h3> <button type="button" class="btn btn-success margB" id="addCareerHistory">Добавить</button>
@@ -279,7 +281,7 @@
     
     
 </div>
-<hr />
+
 <div class="col-md-12">
     <h3>Пожелания по искомой работе </h3> <button type="button" class="btn btn-success margB" id="addPosition">Добавить</button>
     
@@ -338,7 +340,7 @@
     <button type="button" class="btn btn-success margC" id="btn3">Сохранить изменения</button>
 
 </div>
-<hr />
+
 <div class="col-md-12">
     <h3>Какой фактор для Вас является существенным при выборе новой работы</h3>
     <h4>Расставьте факторы поприоритету значимости для Вас от 1 до 10, где 1 – самый значимый, а 10 – наименее значимый</h4>
@@ -400,9 +402,7 @@
     
 
 </div>
-<hr />
 
-```
 <div class="" id="dialogCareerHistory" title="Введите данные">
     
     <div class="col-md-6">

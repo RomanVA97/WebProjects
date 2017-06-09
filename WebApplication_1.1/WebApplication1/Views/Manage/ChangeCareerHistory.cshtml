@@ -1,0 +1,60 @@
+﻿@using WebApplication1.Models;
+
+
+
+
+<div id="ChangeCareerHistoryDialog">
+
+    <div class="col-md-6">
+        
+        <div class="form-group" hidden="hidden">
+            <label for="Id">Уникальный идентификатор пользователя</label>
+            <input type="text" readonly="readonly" class="form-control" id="ChangeCareerHistoryId" value=@ViewBag.ID />
+        </div>
+
+        <div class="form-group">
+            <label for="InputOrganization">Организация</label>
+            <input type="text" name="Organization" class="form-control" id="ChangeInputOrganization" value="@ViewBag.Organization">
+        </div>
+
+        <label for="InputIndustry">Отрасль</label>
+        @Html.DropDownList("Industry", ViewBag.Industry as SelectList, new { id = "ChangeInputIndustry", @class = "form-control" })
+
+        <div class="form-group">
+            <label for="InputSince">С</label>
+            <input type="date" name="Since" class="form-control" id="ChangeInputSince" value="@ViewBag.Since" />
+        </div>
+
+        <div class="form-group">
+            <label for="InputFor">по</label>
+            <input type="date" name="For" class="form-control" id="ChangeInputFor" value="@ViewBag.For" />
+        </div>
+
+        <div class="form-group">
+            <label for="InputThePost">Должность</label>
+            <input type="text" name="ThePost" class="form-control" id="ChangeInputThePost" value="@ViewBag.ThePost" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="InputJobResponsibilities">Должностные обязанности</label>
+            <textarea name="JobResponsibilities" id="ChangeInputJobResponsibilities" class="form-control" rows="3">@ViewBag.JobResponsibilities</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="InputAchievements">Укажите ваши достижения</label>
+            <textarea name="Achievements" id="ChangeInputAchievements" class="form-control" rows="3">@ViewBag.Achievements</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="InputWages">Заработная плата</label>
+            <input type="text" name="Wages" class="form-control" id="ChangeInputWages" value="@ViewBag.Wages" />
+        </div>
+
+        <div class="form-group">
+            <label for="InputReasonForLeaving">Причина ухода</label>
+            <input type="text" name="ReasonForLeaving" class="form-control" id="ChangeInputReasonForLeaving" value="@ViewBag.ReasonForLeaving" />
+        </div>
+    </div>
+
+</div>

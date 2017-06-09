@@ -2,9 +2,8 @@
 
 
 <div id="info">
-    
     <div class="col-md-9">
-        @foreach (Resume item in ViewBag.Img)
+        @foreach (ResumeItem item in ViewBag.Img)
             {
 
             <div class="col-md-9">
@@ -16,12 +15,9 @@
                     <p>Дата рождения: @item.DateOfBirth.Day.@item.DateOfBirth.Month.@item.DateOfBirth.Year</p>
                     <p>Искомые должности</p>
                     <ul>
-                        @foreach (DesiredPositionItem item2 in ViewBag.DesiredPosition)
+                        @foreach (string item2 in item.DesiredPosition)
                         {
-                            if (item2.Id == item.Id)
-                            {
-                                <li>@item2.ThePost</li>
-                            }
+                            <li>@item2</li>
                         }
                     </ul>
                     <button type="button" class="btn btn-success margBtn" onclick="MoreInformation(@item.Id)">Подробнее</button>
@@ -33,4 +29,3 @@
         }
     </div>
 </div>
-

@@ -1,0 +1,26 @@
+﻿@using WebApplication1.Models;
+
+<div id="L">
+    <table class="table table-striped">
+        <tr>
+            <td>Язык</td>
+            <td>Уровень владения</td>
+            <td></td>
+        </tr>
+
+        @foreach (KnowledgeOfForeignLanguagesItem item in ViewBag.Language)
+            {
+            <tr>
+                <td>@item.Language</td>
+                <td>@item.TheLevelOfLanguageLearning</td>
+                <td width="18px"><img src="~/Image/btnCancel.png" onclick="DeleteLanguage(@item.Id)" width="16" height="16" alt="альтернативный текст"></td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+
+
+
+

@@ -3,96 +3,9 @@
     ViewBag.Title = "Резюме";
 }
 
-<div class="jumbotron">
-    Сдесь представлены резюме людей, которые ищут работу
-</div>
-
-<div class="row">
-    <div class="col-md-3">
-
-        <label for="country">Должность</label>
-        @Html.DropDownList("ThePost", ViewBag.ThePost as SelectList, new { id = "thePost", @class = "form-control" })
-        <button type="button" id="filter" class="btn btn-primary margI">Фильтровать</button>
-    </div>
-    <div id="info">
-        <div class="col-md-9">
-            @foreach (Resume item in ViewBag.Img)
-            {
-
-                <div class="col-md-9">
-                    <div class="col-md-4">
-                        @Html.Raw("<img style='width:140px; height:140px;' class='img-rounded' src=\"data:image/jpeg;base64," + Convert.ToBase64String(item.ImageByte) + "\" />")
-                    </div>
-                    <div class="col-md-8">
-                        <p>@item.Surname @item.Name @item.MiddleName</p>
-                        <p>Дата рождения: @item.DateOfBirth.Day.@item.DateOfBirth.Month.@item.DateOfBirth.Year</p>
-                        <p>Искомые должности</p>
-                        <ul>
-                            @foreach (DesiredPositionItem item2 in ViewBag.DesiredPosition)
-                            {
-                                if (item2.Id == item.Id)
-                                {
-                                    <li>@item2.ThePost</li>
-                                }
-                            }
-                        </ul>
-                        <button type="button" class="btn btn-success margBtn" onclick="MoreInformation(@item.Id)">Подробнее</button>
-
-                    </div>
-
-                </div>
-
-            }
-        </div>
-    </div>
+<div class="jumbotron text-center">
+    <h2>Создай своё резюме, а для этого</h2>
+    <a href="~/Account/Register" class="btn btn-success btn-lg active" role="button"><h1>Зарегистрируйся</h1></a>
     
 </div>
 
-<div class="" id="dialogMoreInformation" title="Подробнее">
-
-    <div id="More">
-        
-    </div>
-
-</div>
-
-@section scripts{
-    <script type="text/javascript">
-
-        function MoreInformation(id) {
-
-            $.ajax({
-                type: 'POST',
-                url: '@Url.Action("MoreInformation")?id=' + id,
-                success: function (data) {
-                    $('#More').replaceWith(data);
-
-                }
-            });
-
-
-
-            $("#dialogMoreInformation").dialog("open");
-        }
-
-        $(document).ready(function () {
-
-            $("#dialogMoreInformation").dialog({ modal: true, height: 500, width: 1200, autoOpen: false });
-
-        });
-
-        $('#filter').on('click', (function()
-                {
-                // получаем выбранный id
-            var id = document.getElementById('thePost').value
-            $.ajax({
-                type: 'POST',
-                url: '@Url.Action("Filter")?id=' + id,
-                success: function (data) {
-                    $('#info').replaceWith(data);
-                    //alert();
-                }
-                });}));
-
-    </script>
-    }

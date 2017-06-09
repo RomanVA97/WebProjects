@@ -1,0 +1,61 @@
+﻿@using WebApplication1.Models;
+
+
+
+
+<div class="" id="ChangeEducationDialog" title="Введите данные">
+
+    <div class="col-md-6">
+        
+        <div class="form-group" hidden="hidden">
+            <label for="Id">Уникальный идентификатор пользователя</label>
+            <input type="text" readonly="readonly" class="form-control" id="ChangeEducationId" value=@ViewBag.ID />
+        </div>
+        
+        <div class="form-group">
+            <label for="InputEducationName">Название уч. заведения</label>
+            <input type="text" name="EducationName" value="@ViewBag.EducationName" class="form-control" id="ChangeInputEducationName">
+        </div>
+
+        <label for="InputLevel">Уровень</label>
+        @Html.DropDownList("Level", ViewBag.Level as SelectList, new { id = "ChangeInputLevel", @class = "form-control" })
+
+        <label for="InputProfile">Профиль</label>
+        @Html.DropDownList("Profile", ViewBag.Profile as SelectList, new { id = "ChangeInputProfile", @class = "form-control" })
+
+
+        <div class="form-group">
+            <label for="InputEducationSince">С</label>
+            <input type="date" name="EducationSince" class="form-control" id="ChangeInputEducationSince" />
+        </div>
+
+        <div class="form-group">
+            <label for="InputEducationFor">по</label>
+            <input type="date" name="EducationFor" class="form-control" id="ChangeInputEducationFor" />
+        </div>
+
+    </div>
+    <div class="col-md-6">
+
+        <div class="form-group">
+            <label for="InputEducationFaculty">Факультет</label>
+            <input type="text" name="EducationFaculty" value="@ViewBag.EducationFaculty" class="form-control" id="ChangeInputEducationFaculty" />
+        </div>
+
+        <div class="form-group">
+            <label for="InputEducationSpecialty">Специальность</label>
+            <input type="text" name="EducationSpecialty" value="@ViewBag.EducationSpecialty" class="form-control" id="ChangeInputEducationSpecialty" />
+        </div>
+
+        <div class="form-group">
+            <label for="InputEducationDiplomaQualification">Квалификация по диплому</label>
+            <input type="text" name="EducationDiplomaQualification" value="@ViewBag.EducationDiplomaQualification" class="form-control" id="ChangeInputEducationDiplomaQualification" />
+        </div>
+
+        <label for="InputFormOfTraining">Форма обучения</label>
+        @Html.DropDownList("FormOfTraining", ViewBag.FormOfTraining as SelectList, new { id = "ChangeInputFormOfTraining", @class = "form-control" })
+
+
+    </div>
+
+</div>

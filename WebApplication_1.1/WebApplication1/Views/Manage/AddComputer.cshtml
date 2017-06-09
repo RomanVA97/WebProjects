@@ -1,0 +1,20 @@
+﻿@using WebApplication1.Models;
+
+<div id="C">
+    <table class="table table-striped">
+        <tr>
+            <td>Программа/технология</td>
+            <td>Уровень владения</td>
+            <td></td>
+        </tr>
+        @foreach (AbilityItem item in ViewBag.Ability)
+            {
+            <tr>
+                <td>@item.Skill</td>
+                <td>@item.SkillLevel</td>
+                <td width="18px"><img src="~/Image/btnCancel.png" onclick="DeleteComputer(@item.Id)" width="16" height="16" alt="альтернативный текст"></td>
+            </tr>
+        }
+
+    </table>
+</div>

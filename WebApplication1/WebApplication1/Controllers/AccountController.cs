@@ -70,6 +70,7 @@ namespace WebApplication1.Controllers
         {
             if (!ModelState.IsValid)
             {
+                //return RedirectPermanent("~/Manage/Index");
                 return View(model);
             }
 
@@ -79,7 +80,8 @@ namespace WebApplication1.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return RedirectPermanent("~/Manage/Index");
+                    //return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

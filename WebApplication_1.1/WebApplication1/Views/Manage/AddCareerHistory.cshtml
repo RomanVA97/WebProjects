@@ -1,0 +1,36 @@
+﻿@using WebApplication1.Models;
+
+<div id="CH">
+    <table class="table table-striped">
+        <tr>
+            <td>Организация</td>
+            <td>Отрасль</td>
+            <td>Деятельность</td>
+            <td>Должность</td>
+            <td>Должностные обязанности</td>
+            <td>Достижения</td>
+            <td>Заработная плата</td>
+            <td>Причина ухода</td>
+        </tr>
+        @foreach (CareerHistoryItem item in ViewBag.CareerHistory)
+            {
+            <tr>
+                <td>@item.Organization</td>
+                <td>@item.Industry</td>
+                <td>@item.Since.Day.@item.Since.Month.@item.Since.Year / @item.For.Day.@item.For.Month.@item.For.Year</td>
+                <td>@item.ThePost</td>
+                <td>@item.JobResponsibilities</td>
+                <td>@item.Achievements</td>
+                <td>@item.Wages</td>
+                <td>@item.ReasonForLeaving</td>
+                <td width="50px"><img src="~/Image/btnChange.png" onclick="ChangeCareerHistory(@item.Id)" width="16" height="16" alt="альтернативный текст"><img src="~/Image/btnCancel.png" onclick="DeleteCareerHistory(@item.Id)" width="16" height="16" alt="альтернативный текст"></td>
+            </tr>
+        }
+    </table>
+
+</div>
+
+
+
+
+

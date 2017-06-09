@@ -1,0 +1,1134 @@
+﻿@using WebApplication1.Models;
+@{
+    ViewBag.Title = "Резюме";
+}
+<div class="row col-md-12 marg">
+    <h1>Обязательно загрузите картинку</h1>
+</div>
+<div class="row col-md-12 marg">
+    <form role="form" method="post"  enctype="multipart/form-data">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="InputLastName">Фамилия</label>
+                <input type="text" name="LastName" class="form-control" id="InputLastName" value=@ViewBag.LastName>
+            </div>
+            <div class="form-group">
+                <label for="InputName">Имя</label>
+                <input type="text" name="Name" class="form-control" id="InputName" value=@ViewBag.Name>
+            </div>
+            <div class="form-group">
+                <label for="InputMiddleName">Отчество</label>
+                <input type="text" name="MiddleName" class="form-control" id="InputMiddleName" value=@ViewBag.MiddleName>
+            </div>
+            <div class="form-group">
+                <label for="InputDateOfBirth">Дата рождения</label>
+                <input type="date" name="DateOfBirth" class="form-control" id="InputDateOfBirth" value=@ViewBag.DateOfBirth>
+            </div>
+            <div class="form-group">
+                <label for="InputAdress">Адрес</label>
+                <input type="text" name="Adress" class="form-control" id="InputAdress" value=@ViewBag.Adress>
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="form-group">
+                <label for="InputMobileNumber">Мобильный телефон</label>
+                <input type="text" name="MobileNumber" class="form-control" id="InputMobileNumber" value=@ViewBag.MobileNumber>
+            </div>
+            <div class="form-group">
+                <label for="InputHomeNumber">Домашний телефон</label>
+                <input type="text" name="HomeNumber" class="form-control" id="InputHomeNumber" value=@ViewBag.HomeNumber>
+            </div>
+
+            <label for="Gender" >Пол</label><br />
+            @Html.RadioButton("InputGender", "Мужской")
+            <span>Мужской</span> 
+            @Html.RadioButton("InputGender", "Женский")
+            <span>Женский</span> <br /><br />
+
+            <div class="form-group margG">
+                <label for="InputCitizenship">Гражданство</label>
+                <input type="text" name="Citizenship" class="form-control" id="InputCitizenship" value=@ViewBag.Citizenship>
+            </div>
+
+            <label for="InputMaritalStatus">Семейное положение</label>
+            <select id="InputMaritalStatus" name="MaritalStatus" class="form-control">
+                <option>Холост</option>
+                <option>Разведён</option>
+                <option>Разведена</option>
+                <option>Замужем</option>
+                <option>Не замужем</option>
+                <option>Вдова</option>
+                <option>Вдовец</option>
+                <option>Женат</option>
+            </select>
+
+        </div>
+
+        <div class="col-md-4">
+            
+            
+            <div class="form-group">
+                <label for="InputTheCompositionOfTheFamily">Состав семьи.Возраст детей</label>
+                <input type="text" name="TheCompositionOfTheFamily" class="form-control" id="InputTheCompositionOfTheFamily" value=@ViewBag.TheCompositionOfTheFamily>
+            </div>
+
+            <div class="form-group">
+                <label for="InputDriversLicense">Водительские права(категории)</label>
+                <input type="text" name="DriversLicense" class="form-control" id="InputDriversLicense" value=@ViewBag.DriversLicense>
+            </div>
+
+            <div class="form-group">
+                <label for="InputCarBrand">Марка автомобиля</label>
+                <input type="text" name="CarBrand" class="form-control" id="InputCarBrand" value=@ViewBag.CarBrand>
+            </div>
+
+            <div class="editor-label">Фотография</div>
+            <div class="editor-field">
+                <input type="file" name="uploadImage" id="uploadImage" />
+                <br />
+                <button id="submit">Загрузить</button>
+            </div>
+
+            <div class="form-group" hidden="hidden">
+                <label for="Id">Уникальный идентификатор пользователя</label>
+                <input type="text" readonly="readonly" class="form-control" id="Id" value=@ViewBag.ID />
+            </div>
+        </div>
+        
+        
+    </form>
+    
+    <button type="button" class="btn btn-success margC" id="btn1">Сохранить изменения</button>
+
+
+</div>
+<hr />
+<div class="col-md-12 marg">
+    
+    <h3>История карьеры </h3> <button type="button" class="btn btn-success margB" id="addCareerHistory">Добавить</button>
+    <div id="CH">
+        <table class="table table-striped">
+            <tr>
+                <td>Организация</td>
+                <td>Отрасль</td>
+                <td>Деятельность</td>
+                <td>Должность</td>
+                <td>Должностные обязанности</td>
+                <td>Достижения</td>
+                <td>Заработная плата</td>
+                <td>Причина ухода</td>
+                <td></td>
+            </tr>
+            @foreach (CareerHistoryItem item in ViewBag.CareerHistory)
+            {
+                <tr>
+                    <td>@item.Organization</td>
+                    <td>@item.Industry</td>
+                    <td>@item.Since.Day.@item.Since.Month.@item.Since.Year / @item.For.Day.@item.For.Month.@item.For.Year</td>
+                    <td>@item.ThePost</td>
+                    <td>@item.JobResponsibilities</td>
+                    <td>@item.Achievements</td>
+                    <td>@item.Wages</td>
+                    <td>@item.ReasonForLeaving</td>
+                    <td width="50px"><img src="~/Image/btnChange.png" onclick="ChangeCareerHistory(@item.Id)" width="16" height="16" alt="альтернативный текст"><img src="~/Image/btnCancel.png" onclick="DeleteCareerHistory(@item.Id)" width="16" height="16" alt="альтернативный текст"></td>
+                </tr>
+            }
+        </table>
+
+    </div>
+</div>
+
+<div class="col-md-12">
+    <h3>Квалификационная карта </h3> <button type="button" class="btn btn-success margB" id="addEducation">Добавить</button>
+    <div id="E">
+        <table class="table table-striped">
+            <tr>
+                <td>Название уч. заведения</td>
+                <td>Уровень/профиль</td>
+                <td>Длительность</td>
+                <td>Факультет</td>
+                <td>Специальность</td>
+                <td>Квалификация по диплому</td>
+                <td>Форма обучения</td>
+                <td></td>
+            </tr>
+
+            @foreach (EducationItem item in ViewBag.Education)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Level / @item.Profile</td>
+                    <td>@item.Since.Day.@item.Since.Month.@item.Since.Year / @item.For.Day.@item.For.Month.@item.For.Year</td>
+                    <td>@item.Faculty</td>
+                    <td>@item.Specialty</td>
+                    <td>@item.DiplomaQualification</td>
+                    <td>@item.FormOfTraining</td>
+                    <td width="50px"><img src="~/Image/btnChange.png" onclick="ChangeEducation(@item.Id)" width="16" height="16" alt="альтернативный текст"><img src="~/Image/btnCancel.png" onclick="DeleteEducation(@item.Id)" width="16" height="16" alt="альтернативный текст"></td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+</div>
+
+<div class="col-md-12">
+    <h3>Дополнительное образование</h3> <button type="button" class="btn btn-success margB" id="addAdditionalEducation">Добавить</button>
+    <div id="AE">
+        <table class="table table-striped">
+            <tr>
+                <td>Название учебного курса/семинара/тренинга</td>
+                <td>Тип обучения</td>
+                <td>Год начала обучения</td>
+                <td>Длительность обучения</td>
+                <td>Название бизнес-школы</td>
+                <td>Преподаватель</td>
+                <td></td>
+            </tr>
+
+            @foreach (AdditionalEducationItem item in ViewBag.AdditionalEducation)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.TheTypeOfTraining</td>
+                    <td>@item.YearOfCommencementOfStudy</td>
+                    <td>@item.TheDurationOfTraining</td>
+                    <td>@item.NameOfSchool</td>
+                    <td>@item.Teacher</td>
+                    <td width="50px"><img src="~/Image/btnChange.png" onclick="ChangeAdditionalEducation(@item.Id)" width="16" height="16" alt="альтернативный текст"><img src="~/Image/btnCancel.png" onclick="DeleteAdditionalEducation(@item.Id)" width="16" height="16" alt="альтернативный текст"></td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>
+
+<div class="col-md-12">
+    <h3>Знание иностранных языков </h3> <button type="button" class="btn btn-success margB" id="addLanguage">Добавить</button>
+    <div id="L">
+        <table class="table table-striped">
+            <tr>
+                <td>Язык</td>
+                <td>Уровень владения</td>
+                <td></td>
+            </tr>
+
+            @foreach (KnowledgeOfForeignLanguagesItem item in ViewBag.Lang)
+            {
+                <tr>
+                    <td>@item.Language</td>
+                    <td>@item.TheLevelOfLanguageLearning</td>
+                    <td width="18px"><img src="~/Image/btnCancel.png"  onclick="DeleteLanguage(@item.Id)" width="16" height="16" alt="альтернативный текст"></td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+</div>
+
+<div class="col-md-12">
+    <h3>Знание компьютера </h3> <button type="button" class="btn btn-success margB" id="addComputer">Добавить</button>
+    <div id="C">
+        <table class="table table-striped">
+            <tr>
+                <td>Программа/технология</td>
+                <td>Уровень владения</td>
+                <td></td>
+            </tr>
+            @foreach (AbilityItem item in ViewBag.Ability)
+            {
+                <tr>
+                    <td>@item.Skill</td>
+                    <td>@item.SkillLevel</td>
+                    <td width="18px"><img src="~/Image/btnCancel.png"  onclick="DeleteComputer(@item.Id)" width="16" height="16" alt="альтернативный текст"></td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <h3>Навыки и качества</h3>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="InputTheBusinessAndPsychologicalQualities">Деловые и психологические качества</label>
+            <textarea name="TheBusinessAndPsychologicalQualities" id="InputTheBusinessAndPsychologicalQualities" class="form-control" rows="3">@ViewBag.TheBusinessAndPsychologicalQualities</textarea>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="InputProfessionalSkills">Профессиональные навыки</label>
+            <textarea name="ProfessionalSkills" id="InputProfessionalSkills" class="form-control" rows="3">@ViewBag.ProfessionalSkills</textarea>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="InputHobbies">Увлечения</label>
+            <textarea name="Hobbies" id="InputHobbies" class="form-control" rows="3">@ViewBag.Hobbies</textarea>
+        </div>
+    </div>
+    
+    <button type="button" class="btn btn-success margC" id="btn2">Сохранить изменения</button>
+    
+    
+</div>
+<hr />
+<div class="col-md-12">
+    <h3>Пожелания по искомой работе </h3> <button type="button" class="btn btn-success margB" id="addPosition">Добавить</button>
+    
+    <div id="P">
+        <table class="table table-striped">
+            <tr>
+                <td>Должность</td>
+                <td>Условия труда</td>
+                <td>Укажите, какие профессиональные задачи Вы способны решать наиболее компетентно в настоящее время</td>
+                <td>Дополнительные сведения,которые Вы считаете необходимым сообщить</td>
+            </tr>
+
+            <tr>
+                <td>
+                    @foreach (DesiredPositionItem item in ViewBag.DesiredPosition)
+                    {
+                        @item.ThePost
+                        <img src="~/Image/btnCancel.png" onclick="DeleteDesiredPosition(@item.PostId)" width="16" height="16" alt="альтернативный текст">
+                        <br/>
+                    }
+                </td>
+                <td width="300px"><textarea name="WorkingConditions" id="InputWorkingConditions" class="form-control" rows="3">@ViewBag.WorkingConditions</textarea></td>
+                <td width="300px"><textarea name="ProfessionalTasks" id="InputProfessionalTasks" class="form-control" rows="3">@ViewBag.ProfessionalTasks</textarea></td>
+                <td width="300px"><textarea name="ForMoreInformation" id="InputForMoreInformation" class="form-control" rows="3">@ViewBag.ForMoreInformation</textarea></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <h3>Ваши пожелания по условиям оплаты труда</h3>
+    <div class="form-group">
+        <label for="InputSalary">Размер заработной платы(у.е.)</label>
+        <input type="text" name="Salary" class="form-control" id="InputSalary" value=@ViewBag.Salary>
+    </div>
+    <div class="form-group">
+        <label for="InputMinSalary">Минимальный, на испытательный срок</label>
+        <input type="text" name="MinSalary" class="form-control" id="InputMinSalary" value=@ViewBag.MinSalary>
+    </div>
+    <div class="form-group">
+        <label for="InputNormSalary">Желаемый, после испытательного срока</label>
+        <input type="text" name="NormSalary" class="form-control" id="InputNormSalary" value=@ViewBag.NormSalary>
+    </div>
+        
+    <h4>Желаемая система оплаты</h4>
+    <label><input type="checkbox" id="InputSalaryChek" value="@ViewBag.SalaryChek" /> Оклад</label><br />
+    <label><input type="checkbox" id="InputThePercentage" value="@ViewBag.ThePercentage" /> Процент</label><br />
+    <label><input type="checkbox" id="InputSalaryBonus" value="@ViewBag.SalaryBonus" /> Оклад+премия</label><br />
+    <label><input type="checkbox" id="InputSalaryPercentage" value="@ViewBag.SalaryPercentage" /> Оклад+процент</label><br />
+
+    <div class="form-group">
+        <label for="InputComment">Ваши комментарии</label>
+        <input type="text" name="Comment" class="form-control" id="InputComment" value=@ViewBag.Comment>
+    </div>
+
+    <button type="button" class="btn btn-success margC" id="btn3">Сохранить изменения</button>
+
+</div>
+<hr />
+<div class="col-md-12">
+    <h3>Какой фактор для Вас является существенным при выборе новой работы</h3>
+    <h4>Расставьте факторы поприоритету значимости для Вас от 1 до 10, где 1 – самый значимый, а 10 – наименее значимый</h4>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="InputIncome">Заработок</label>
+            <input type="text" name="Income" class="form-control" id="InputIncome" value=@ViewBag.Income>
+        </div>
+        <div class="form-group">
+            <label for="InputTheProspectOfJobGrowth">Перспектива должностного роста</label>
+            <input type="text" name="TheProspectOfJobGrowth" class="form-control" id="InputTheProspectOfJobGrowth" value=@ViewBag.TheProspectOfJobGrowth>
+        </div>
+        <div class="form-group">
+            <label for="InputToGetTheNecessaryExperience">Получить необходимый опыт</label>
+            <input type="text" name="ToGetTheNecessaryExperience" class="form-control" id="InputToGetTheNecessaryExperience" value=@ViewBag.ToGetTheNecessaryExperience>
+        </div>
+        <div class="form-group">
+            <label for="InputToImproveTheProfessionalLevel">Повысить профессиональный уровень</label>
+            <input type="text" name="ToImproveTheProfessionalLevel" class="form-control" id="InputToImproveTheProfessionalLevel" value=@ViewBag.ToImproveTheProfessionalLevel>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="InputToDemonstrateTheirAbilities">Проявить свои способности</label>
+            <input type="text" name="ToDemonstrateTheirAbilities" class="form-control" id="InputToDemonstrateTheirAbilities" value=@ViewBag.ToDemonstrateTheirAbilities>
+        </div>
+        <div class="form-group">
+            <label for="InputAHighLevelOfAutonomy">Высокий уровень самостоятельности</label>
+            <input type="text" name="AHighLevelOfAutonomy" class="form-control" id="InputAHighLevelOfAutonomy" value=@ViewBag.AHighLevelOfAutonomy>
+        </div>
+        <div class="form-group">
+            <label for="InputTheStabilityOfTheCompany">Стабильность фирмы</label>
+            <input type="text" name="TheStabilityOfTheCompany" class="form-control" id="InputTheStabilityOfTheCompany" value=@ViewBag.TheStabilityOfTheCompany>
+        </div>
+        <div class="form-group">
+            <label for="InputActivitiesOfTheCompany">Направления деятельности фирмы</label>
+            <input type="text" name="ActivitiesOfTheCompany" class="form-control" id="InputActivitiesOfTheCompany" value=@ViewBag.ActivitiesOfTheCompany>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="InputWorkingConditionsInTheWorkplace">Условия труда на рабочем месте</label>
+            <input type="text" name="WorkingConditionsInTheWorkplace" class="form-control" id="InputWorkingConditionsInTheWorkplace" value=@ViewBag.WorkingConditionsInTheWorkplace>
+        </div>
+        <div class="form-group">
+            <label for="InputRelationsWithTheLeadership">Отношения с руководством</label>
+            <input type="text" name="RelationsWithTheLeadership" class="form-control" id="InputRelationsWithTheLeadership" value=@ViewBag.RelationsWithTheLeadership>
+        </div>
+        <div class="form-group">
+            <label for="Input">Что-то еще(укажите, что именно)</label>
+            <input type="text" name="SomethingElse" class="form-control" id="InputSomethingElse" value=@ViewBag.SomethingElse>
+        </div>
+        <label for="InputTheTypeOfTraining">Источник информации</label>
+        @Html.DropDownList("SourceOfInformation", ViewBag.SourceOfInformation as SelectList, new { id = "InputSourceOfInformation", @class = "form-control" })
+
+        <button type="button" class="btn btn-success margC form-group" id="Fine">Сохранить изменения</button>
+    </div>
+    
+    
+
+</div>
+<hr />
+
+```
+<div class="" id="dialogCareerHistory" title="Введите данные">
+    
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="InputOrganization">Организация</label>
+            <input type="text" name="Organization" class="form-control" id="InputOrganization">
+        </div>
+
+        <label for="InputIndustry">Отрасль</label>
+        @Html.DropDownList("Industry", ViewBag.Industry as SelectList, new { id = "InputIndustry", @class = "form-control" })
+
+        <div class="form-group">
+            <label for="InputSince">С</label>
+            <input type="date" name="Since" class="form-control" id="InputSince" />
+        </div>
+
+        <div class="form-group">
+            <label for="InputFor">по</label>
+            <input type="date" name="For" class="form-control" id="InputFor" />
+        </div>
+
+        <div class="form-group">
+            <label for="InputThePost">Должность</label>
+            <input type="text" name="ThePost" class="form-control" id="InputThePost" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="InputJobResponsibilities">Должностные обязанности</label>
+            <textarea name="JobResponsibilities" id="InputJobResponsibilities" class="form-control" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="InputAchievements">Укажите ваши достижения</label>
+            <textarea name="Achievements" id="InputAchievements" class="form-control" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="InputWages">Заработная плата</label>
+            <input type="text" name="Wages" class="form-control" id="InputWages" />
+        </div>
+
+        <div class="form-group">
+            <label for="InputReasonForLeaving">Причина ухода</label>
+            <input type="text" name="ReasonForLeaving" class="form-control" id="InputReasonForLeaving" />
+        </div>
+    </div>
+    
+</div>
+
+<div class="" id="dialogEducation" title="Введите данные">
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="InputEducationName">Название уч. заведения</label>
+            <input type="text" name="EducationName" class="form-control" id="InputEducationName">
+        </div>
+
+        <label for="InputLevel">Уровень</label>
+        @Html.DropDownList("Level", ViewBag.Level as SelectList, new { id = "InputLevel", @class = "form-control" })
+
+        <label for="InputProfile">Профиль</label>
+        @Html.DropDownList("Profile", ViewBag.Profile as SelectList, new { id = "InputProfile", @class = "form-control" })
+
+
+        <div class="form-group">
+            <label for="InputEducationSince">С</label>
+            <input type="date" name="EducationSince" class="form-control" id="InputEducationSince" />
+        </div>
+
+        <div class="form-group">
+            <label for="InputEducationFor">по</label>
+            <input type="date" name="EducationFor" class="form-control" id="InputEducationFor" />
+        </div>
+        
+    </div>
+    <div class="col-md-6">
+        
+        <div class="form-group">
+            <label for="InputEducationFaculty">Факультет</label>
+            <input type="text" name="EducationFaculty" class="form-control" id="InputEducationFaculty" />
+        </div>
+
+        <div class="form-group">
+            <label for="InputEducationSpecialty">Специальность</label>
+            <input type="text" name="EducationSpecialty" class="form-control" id="InputEducationSpecialty" />
+        </div>
+
+        <div class="form-group">
+            <label for="InputEducationDiplomaQualification">Квалификация по диплому</label>
+            <input type="text" name="EducationDiplomaQualification" class="form-control" id="InputEducationDiplomaQualification" />
+        </div>
+
+        <label for="InputFormOfTraining">Форма обучения</label>
+        @Html.DropDownList("FormOfTraining", ViewBag.FormOfTraining as SelectList, new { id = "InputFormOfTraining", @class = "form-control" })
+
+
+    </div>
+
+</div>
+
+<div class="" id="dialogAdditionalEducation" title="Введите данные">
+
+    <div class="col-md-6">
+        
+        <div class="form-group">
+            <label for="InputAdditionalEducationName">Название учебного курса/семинара/тренинга</label>
+            <input type="text" name="AdditionalEducationName" class="form-control" id="InputAdditionalEducationName">
+        </div>
+
+        <label for="InputTheTypeOfTraining">Тип обучения</label>
+        @Html.DropDownList("TheTypeOfTraining", ViewBag.TheTypeOfTraining as SelectList, new { id = "InputTheTypeOfTraining", @class = "form-control" })
+
+        <div class="form-group">
+            <label for="InputAdditionalEducationYearOfCommencementOfStudy">Год начала обучения</label>
+            <input type="text" name="AdditionalEducationYearOfCommencementOfStudy" class="form-control" id="InputAdditionalEducationYearOfCommencementOfStudy">
+        </div>
+
+    </div>
+    <div class="col-md-6">
+
+        <div class="form-group">
+            <label for="InputAdditionalEducationTheDurationOfTraining">Длительность обучения</label>
+            <input type="text" name="AdditionalEducationTheDurationOfTraining" class="form-control" id="InputAdditionalEducationTheDurationOfTraining">
+        </div>
+        <div class="form-group">
+            <label for="InputAdditionalEducationNameOfSchool">Название бизнес-школы</label>
+            <input type="text" name="AdditionalEducationNameOfSchool" class="form-control" id="InputAdditionalEducationNameOfSchool">
+        </div>
+        <div class="form-group">
+            <label for="InputAdditionalEducationTeacher">Преподаватель(если можете указать)</label>
+            <input type="text" name="AdditionalEducationTeacher" class="form-control" id="InputAdditionalEducationTeacher">
+        </div>
+
+    </div>
+
+</div>
+
+<div class="" id="dialogLanguage" title="Введите данные">
+
+    <div class="col-md-6">
+        <label for="InputLanguage">Язык</label>
+        @Html.DropDownList("Language", ViewBag.Language as SelectList, new { id = "InputLanguage", @class = "form-control" })
+    </div>
+    <div class="col-md-6">
+        <label for="InputTheLevelOfLanguageLearning">Уровень владения</label>
+        @Html.DropDownList("TheLevelOfLanguageLearning", ViewBag.TheLevelOfLanguageLearning as SelectList, new { id = "InputTheLevelOfLanguageLearning", @class = "form-control" })
+    </div>
+
+</div>
+
+<div class="" id="dialogComputer" title="Введите данные">
+
+    <div class="col-md-6">
+        <label for="InputSkill">Навык</label>
+        @Html.DropDownList("Skill", ViewBag.Skill as SelectList, new { id = "InputSkill", @class = "form-control" })
+    </div>
+    <div class="col-md-6">
+        <label for="InputSkillLevel">Степень освоения</label>
+        @Html.DropDownList("SkillLevel", ViewBag.SkillLevel as SelectList, new { id = "InputSkillLevel", @class = "form-control" })
+    </div>
+
+</div>
+
+<div class="" id="dialogPosition" title="Введите данные">
+
+    <div class="col-md-12">
+        <label for="InputThePost">Должность</label>
+        @Html.DropDownList("ThePost", ViewBag.ThePost as SelectList, new { id = "InputThPost", @class = "form-control" })
+    </div>
+
+</div>
+
+<div class="" id="dialogChangeCareerHistory" title="Введите данные">
+
+    <div id="ChangeCareerHistoryDialog">
+    
+    </div>
+
+</div>
+
+<div class="" id="dialogChangeEducation" title="Введите данные">
+
+    <div id="ChangeEducationDialog">
+
+    </div>
+
+</div>
+
+<div class="" id="dialogChangeAdditionalEducation" title="Введите данные">
+
+    <div id="ChangeAdditionalEducationDialog">
+
+    </div>
+
+</div>
+
+
+@section scripts{
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+
+        $("#dialogChangeAdditionalEducation").dialog({
+            modal: true, height: 500, width: 630, autoOpen: false, buttons: {
+                OK: function () {
+                    $(this).dialog("close");
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("ChangeAdditionalEducation")?id=' + document.getElementById('ChangeAdditionalEducationId').value +
+                        '&AdditionalEducationName=' + document.getElementById('ChangeInputAdditionalEducationName').value +
+                        '&TheTypeOfTraining=' + document.getElementById('ChangeInputTheTypeOfTraining').value +
+                        '&AdditionalEducationYearOfCommencementOfStudy=' + document.getElementById('ChangeInputAdditionalEducationYearOfCommencementOfStudy').value +
+                        '&AdditionalEducationTheDurationOfTraining=' + document.getElementById('ChangeInputAdditionalEducationTheDurationOfTraining').value +
+                        '&AdditionalEducationNameOfSchool=' + document.getElementById('ChangeInputAdditionalEducationNameOfSchool').value +
+                        '&AdditionalEducationTeacher=' + document.getElementById('ChangeInputAdditionalEducationTeacher').value,
+                        success: function (data) {
+                            $('#AE').replaceWith(data);
+                        }
+                    });
+                },
+                Отмена: function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        $("#dialogChangeEducation").dialog({
+            modal: true, height: 500, width: 630, autoOpen: false, buttons: {
+                OK: function () {
+                    $(this).dialog("close");
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("ChangeEducation")?id=' + document.getElementById('ChangeEducationId').value +
+                        '&EducationName=' + document.getElementById('ChangeInputEducationName').value +
+                        '&Level=' + document.getElementById('ChangeInputLevel').value +
+                        '&Profile=' + document.getElementById('ChangeInputProfile').value +
+                        '&EducationSince=' + document.getElementById('ChangeInputEducationSince').value +
+                        '&EducationFor=' + document.getElementById('ChangeInputEducationFor').value +
+                        '&EducationFaculty=' + document.getElementById('ChangeInputEducationFaculty').value +
+                        '&EducationSpecialty=' + document.getElementById('ChangeInputEducationSpecialty').value +
+                        '&EducationDiplomaQualification=' + document.getElementById('ChangeInputEducationDiplomaQualification').value +
+                        '&FormOfTraining=' + document.getElementById('ChangeInputFormOfTraining').value,
+                        success: function (data) {
+                            $('#E').replaceWith(data);
+                        }
+                    });
+                },
+                Отмена: function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        $("#dialogChangeCareerHistory").dialog({
+            modal: true, height: 500, width: 630, autoOpen:false,buttons:{
+        OK:function(){
+            $(this).dialog("close");
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ChangeCareerHistory")?id=' + document.getElementById('ChangeCareerHistoryId').value +
+                    '&Organization=' + document.getElementById('ChangeInputOrganization').value +
+                    '&Industry=' + document.getElementById('ChangeInputIndustry').options[0].value +
+                    '&Since=' + document.getElementById('ChangeInputSince').value +
+                    '&For=' + document.getElementById('ChangeInputFor').value +
+                    '&ThePost=' + document.getElementById('ChangeInputThePost').value +
+                    '&JobResponsibilities=' + document.getElementById('ChangeInputJobResponsibilities').value +
+                    '&Achievements=' + document.getElementById('ChangeInputAchievements').value +
+                    '&Wages=' + document.getElementById('ChangeInputWages').value +
+                    '&ReasonForLeaving=' + document.getElementById('ChangeInputReasonForLeaving').value,
+                    success: function (data) {
+                        $('#CH').replaceWith(data);
+
+                    }
+                });
+            },
+            Отмена:function(){
+            $(this).dialog("close");
+
+            }
+        }
+        });
+
+        $("#dialogCareerHistory").dialog({
+            modal: true, height: 500, width: 630, autoOpen:false,buttons:{
+      OK:function(){
+         $(this).dialog("close");
+             $.ajax({
+                type: 'POST',
+                url: '@Url.Action("AddCareerHistory")?id=' + document.getElementById('Id').value +
+                '&Organization=' + document.getElementById('InputOrganization').value +
+                '&Industry=' + document.getElementById('InputIndustry').options[0].value +
+                '&Since=' + document.getElementById('InputSince').value +
+                '&For=' + document.getElementById('InputFor').value +
+                '&ThePost=' + document.getElementById('InputThePost').value +
+                '&JobResponsibilities=' + document.getElementById('InputJobResponsibilities').value +
+                '&Achievements=' + document.getElementById('InputAchievements').value +
+                '&Wages=' + document.getElementById('InputWages').value +
+                '&ReasonForLeaving=' + document.getElementById('InputReasonForLeaving').value,
+                success: function (data) {
+                    $('#CH').replaceWith(data);
+
+                }
+            });
+         },
+      Отмена:function(){
+         $(this).dialog("close");
+
+        }
+     }
+    });
+        $("#addCareerHistory").click(function(){
+            $("#dialogCareerHistory").dialog("open");
+        });
+
+        $("#dialogEducation").dialog({
+            modal: true, height: 500, width: 630, autoOpen: false, buttons: {
+                OK: function () {
+                    $(this).dialog("close");
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("AddEducation")?id=' + document.getElementById('Id').value +
+                        '&EducationName=' + document.getElementById('InputEducationName').value +
+                        '&Level=' + document.getElementById('InputLevel').value +
+                        '&Profile=' + document.getElementById('InputProfile').value +
+                        '&EducationSince=' + document.getElementById('InputEducationSince').value +
+                        '&EducationFor=' + document.getElementById('InputEducationFor').value +
+                        '&EducationFaculty=' + document.getElementById('InputEducationFaculty').value +
+                        '&EducationSpecialty=' + document.getElementById('InputEducationSpecialty').value +
+                        '&EducationDiplomaQualification=' + document.getElementById('InputEducationDiplomaQualification').value +
+                        '&FormOfTraining=' + document.getElementById('InputFormOfTraining').value,
+                        success: function (data) {
+                            $('#E').replaceWith(data);
+                        }
+                    });
+                },
+                Отмена: function () {
+                    $(this).dialog("close");
+                    //alert("Вы нажали Отмена.");
+                }
+            }
+        });
+        $("#addEducation").click(function () {
+            $("#dialogEducation").dialog("open");
+        });
+
+        $("#dialogAdditionalEducation").dialog({
+            modal: true, height: 500, width: 630, autoOpen: false, buttons: {
+                OK: function () {
+                    $(this).dialog("close");
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("AddAdditionalEducation")?id=' + document.getElementById('Id').value +
+                        '&AdditionalEducationName=' + document.getElementById('InputAdditionalEducationName').value +
+                        '&TheTypeOfTraining=' + document.getElementById('InputTheTypeOfTraining').value +
+                        '&AdditionalEducationYearOfCommencementOfStudy=' + document.getElementById('InputAdditionalEducationYearOfCommencementOfStudy').value +
+                        '&AdditionalEducationTheDurationOfTraining=' + document.getElementById('InputAdditionalEducationTheDurationOfTraining').value +
+                        '&AdditionalEducationNameOfSchool=' + document.getElementById('InputAdditionalEducationNameOfSchool').value +
+                        '&AdditionalEducationTeacher=' + document.getElementById('InputAdditionalEducationTeacher').value,
+                        success: function (data) {
+                            $('#AE').replaceWith(data);
+                        }
+                    });
+                },
+                Отмена: function () {
+                    $(this).dialog("close");
+                    //alert("Вы нажали Отмена.");
+                }
+            }
+        });
+        $("#addAdditionalEducation").click(function () {
+            $("#dialogAdditionalEducation").dialog("open");
+        });
+
+        $("#dialogLanguage").dialog({
+            modal: true, height: 200, width: 630, autoOpen: false, buttons: {
+                OK: function () {
+                    $(this).dialog("close");
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("AddLanguage")?id=' + document.getElementById('Id').value +
+                        '&Language=' + document.getElementById('InputLanguage').value +
+                        '&TheLevelOfLanguageLearning=' + document.getElementById('InputTheLevelOfLanguageLearning').value,
+                        success: function (data) {
+                            $('#L').replaceWith(data);
+                        }
+                    });
+                },
+                Отмена: function () {
+                    $(this).dialog("close");
+                    //alert("Вы нажали Отмена.");
+                }
+            }
+        });
+        $("#addLanguage").click(function () {
+            $("#dialogLanguage").dialog("open");
+        });
+
+        $("#dialogComputer").dialog({
+            modal: true, height: 200, width: 630, autoOpen: false, buttons: {
+                OK: function () {
+                    $(this).dialog("close");
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("AddComputer")?id=' + document.getElementById('Id').value +
+                        '&Skill=' + document.getElementById('InputSkill').value +
+                        '&SkillLevel=' + document.getElementById('InputSkillLevel').value,
+                        success: function (data) {
+                            $('#C').replaceWith(data);
+                        }
+                    });
+                },
+                Отмена: function () {
+                    $(this).dialog("close");
+                    //alert("Вы нажали Отмена.");
+                }
+            }
+        });
+        $("#addComputer").click(function () {
+            $("#dialogComputer").dialog("open");
+        });
+
+        $("#dialogPosition").dialog({
+            modal: true, height: 200, width: 300, autoOpen: false, buttons: {
+                OK: function () {
+                    $(this).dialog("close");
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("AddPosition")?id=' + document.getElementById('Id').value +
+                        '&ThePost=' + document.getElementById('InputThPost').value +
+                        '&WorkingConditions=' + document.getElementById('InputWorkingConditions').value +
+                        '&ProfessionalTasks=' + document.getElementById('InputProfessionalTasks').value +
+                        '&ForMoreInformation=' + document.getElementById('InputForMoreInformation').value,
+                        success: function (data) {
+                            $('#P').replaceWith(data);
+                        }
+                    });
+                },
+                Отмена: function () {
+                    $(this).dialog("close");
+                    //alert("Вы нажали Отмена.");
+                }
+            }
+        });
+        $("#addPosition").click(function () {
+            $("#dialogPosition").dialog("open");
+        });
+
+
+        $("#Fine").click(function () {
+
+            $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("ChangeResume")?id=' + document.getElementById('Id').value +
+                        '&Income=' + document.getElementById('InputIncome').value +
+                        '&TheProspectOfJobGrowth=' + document.getElementById('InputTheProspectOfJobGrowth').value +
+                        '&ToGetTheNecessaryExperience=' + document.getElementById('InputToGetTheNecessaryExperience').value +
+                        '&ToImproveTheProfessionalLevel=' + document.getElementById('InputToImproveTheProfessionalLevel').value +
+                        '&ToDemonstrateTheirAbilities=' + document.getElementById('InputToDemonstrateTheirAbilities').value +
+                        '&AHighLevelOfAutonomy=' + document.getElementById('InputAHighLevelOfAutonomy').value +
+                        '&TheStabilityOfTheCompany=' + document.getElementById('InputTheStabilityOfTheCompany').value +
+                        '&ActivitiesOfTheCompany=' + document.getElementById('InputActivitiesOfTheCompany').value +
+                        '&WorkingConditionsInTheWorkplace=' + document.getElementById('InputWorkingConditionsInTheWorkplace').value +
+                        '&RelationsWithTheLeadership=' + document.getElementById('InputRelationsWithTheLeadership').value +
+                        '&SomethingElse=' + document.getElementById('InputSomethingElse').value +
+                        '&SourceOfInformation=' + document.getElementById('InputSourceOfInformation').value,
+                        success: function (data) {
+                            alert("Изменения успешно произведены");
+                        }
+                    });
+            });
+
+        $('#submit').on('click', function (e) {
+        e.preventDefault();
+        var files = document.getElementById('uploadImage').files;
+        if (files.length > 0) {
+            if (window.FormData !== undefined) {
+                var data = new FormData();
+                for (var x = 0; x < files.length; x++) {
+                    data.append("file" + x, files[x]);
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Upload", "Manage")',
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    success: function (result) {
+                        alert(result);
+                    },
+                    error: function (xhr, status, p3) {
+                        alert(xhr.responseText);
+                    }
+                });
+            } else {
+                alert("Браузер не поддерживает загрузку файлов HTML5!");
+            }
+        }
+    });
+
+        $("#btn1").click(function () {
+
+            $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("CR1")?id=' + document.getElementById('Id').value +
+                        '&Surname=' + document.getElementById('InputLastName').value +
+                        '&Name=' + document.getElementById('InputName').value +
+                        '&MiddleName=' + document.getElementById('InputMiddleName').value +
+                        '&DateOfBirth=' + document.getElementById('InputDateOfBirth').value +
+                        '&Adress=' + document.getElementById('InputAdress').value +
+                        '&MobileNumber=' + document.getElementById('InputMobileNumber').value +
+                        '&HomeNumber=' + document.getElementById('InputHomeNumber').value +
+                        '&Gender=' + document.getElementById('InputGender').value +
+                        '&Citizenship=' + document.getElementById('InputCitizenship').value +
+                        '&MaritalStatus=' + document.getElementById('InputMaritalStatus').value +
+                        '&TheCompositionOfTheFamily=' + document.getElementById('InputTheCompositionOfTheFamily').value +
+                        '&DriversLicense=' + document.getElementById('InputDriversLicense').value +
+                        '&CarBrand=' + document.getElementById('InputCarBrand').value,
+                        success: function(data) {
+                            alert("Изменения успешно произведены");
+                        }
+                    });
+        });
+
+        $("#btn2").click(function () {
+
+            $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("CR2")?id=' + document.getElementById('Id').value +
+                        '&TheBusinessAndPsychologicalQualities=' + document.getElementById('InputTheBusinessAndPsychologicalQualities').value +
+                        '&ProfessionalSkills=' + document.getElementById('InputProfessionalSkills').value +
+                        '&Hobbies=' + document.getElementById('InputHobbies').value,
+                        success: function (data) {
+                            alert("Изменения успешно произведены");
+                        }
+                    });
+            });
+
+        $("#btn3").click(function () {
+
+            $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("CR3")?id=' + document.getElementById('Id').value +
+                        '&WorkingConditions=' + document.getElementById('InputWorkingConditions').value +
+                        '&ProfessionalTasks=' + document.getElementById('InputProfessionalTasks').value +
+                        '&ForMoreInformation=' + document.getElementById('InputForMoreInformation').value +
+
+                        '&Salary=' + document.getElementById('InputSalary').value +
+                        '&MinSalary=' + document.getElementById('InputMinSalary').value +
+                        '&NormSalary=' + document.getElementById('InputNormSalary').value +
+
+                        '&SalaryChek=' + $('#InputSalaryChek').prop('checked') +
+                        '&ThePercentage=' + $('#InputThePercentage').prop('checked') +
+                        '&SalaryBonus=' + $('#InputSalaryBonus').prop('checked') +
+                        '&SalaryPercentage=' + $('#InputSalaryPercentage').prop('checked') +
+                        '&Comment=' + document.getElementById('InputComment').value,
+                        success: function (data) {
+                            alert("Изменения успешно произведены");
+                        }
+                    });
+            });
+
+
+
+        });
+        @*
+        function ChangeCareerHistory(Id){
+            $.ajax({
+                        type: 'GET',
+                        url: '@Url.Action("ChangeCareerHistory")?id=' + id,
+                        success: function (data) {
+
+                        }
+            });
+
+            $("#addPosition").click(function () {
+                $("#ChangeCareerHistory").dialog("open");
+            });
+
+            $("#dialogChangeCareerHistory").dialog({
+            modal: true, height: 200, width: 300, autoOpen: false, buttons: {
+                OK: function () {
+                    $(this).dialog("close");
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("AddPosition")?id=' + document.getElementById('Id').value +
+                        '&ThePost=' + document.getElementById('InputThPost').value +
+                        '&WorkingConditions=' + document.getElementById('InputWorkingConditions').value +
+                        '&ProfessionalTasks=' + document.getElementById('InputProfessionalTasks').value +
+                        '&ForMoreInformation=' + document.getElementById('InputForMoreInformation').value,
+                        success: function (data) {
+                            $('#P').replaceWith(data);
+                        }
+                    });
+                },
+                Отмена: function () {
+                    $(this).dialog("close");
+                    //alert("Вы нажали Отмена.");
+                }
+            }
+            });
+
+
+
+
+        }
+        *@
+
+        function DeleteCareerHistory(Id)
+        {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("DeleteCareerHistory")?id=' + Id + '&id2=' + document.getElementById('Id').value,
+                success: function (data) {
+                    $('#CH').replaceWith(data);
+                    //alert();
+                }
+            });
+        }
+        function DeleteEducation(Id)
+        {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("DeleteEducation")?id=' + Id + '&id2=' + document.getElementById('Id').value,
+                success: function (data) {
+                    $('#E').replaceWith(data);
+                    //alert();
+                }
+            });
+        }
+        function DeleteAdditionalEducation(Id)
+        {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("DeleteAdditionalEducation")?id=' + Id + '&id2=' + document.getElementById('Id').value,
+                success: function (data) {
+                    $('#AE').replaceWith(data);
+                    //alert();
+                }
+            });
+        }
+
+        function DeleteLanguage(Id)
+        {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("DeleteLanguage")?id=' + Id + '&id2=' + document.getElementById('Id').value,
+                success: function (data) {
+                    $('#L').replaceWith(data);
+                    //alert();
+                }
+            });
+        }
+
+        function DeleteComputer(Id)
+        {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("DeleteComputer")?id=' + Id + '&id2=' + document.getElementById('Id').value,
+                success: function (data) {
+                    $('#C').replaceWith(data);
+                    //alert();
+                }
+            });
+        }
+
+        function DeleteDesiredPosition(Id)
+        {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("DeletePosition")?id=' + Id + '&id2=' + document.getElementById('Id').value +
+                '&WorkingConditions=' + document.getElementById('InputWorkingConditions').value +
+                '&ProfessionalTasks=' + document.getElementById('InputProfessionalTasks').value +
+                '&ForMoreInformation=' + document.getElementById('InputForMoreInformation').value,
+                success: function (data) {
+                    $('#P').replaceWith(data);
+                    //alert();
+                }
+            });
+        }
+
+        function ChangeCareerHistory(id) {
+
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("ChangeCareerHistory")?id=' + id,
+                success: function (data) {
+                    $('#ChangeCareerHistoryDialog').replaceWith(data);
+                }
+            });
+
+            $("#dialogChangeCareerHistory").dialog("open");
+        }
+
+        function ChangeEducation(id) {
+
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("ChangeEducation")?id=' + id,
+                success: function (data) {
+                    $('#ChangeEducationDialog').replaceWith(data);
+                }
+            });
+
+            $("#dialogChangeEducation").dialog("open");
+        }
+
+        function ChangeAdditionalEducation(id) {
+
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("ChangeAdditionalEducation")?id=' + id,
+                success: function (data) {
+                    $('#ChangeAdditionalEducationDialog').replaceWith(data);
+                }
+            });
+
+            $("#dialogChangeAdditionalEducation").dialog("open");
+        }
+
+
+
+
+
+
+
+    </script>
+}
