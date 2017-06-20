@@ -12,4 +12,6 @@ d.innerHTML = "<a href='http:www.yandex.by'>" +
 "<a href='http:www.google.by'>" +
 "	<img src='http://4.bp.blogspot.com/-3c_ysEB34xk/U5IiL0glYmI/AAAAAAAAqjg/w141idwpEL0/s1600/A%2Bque%2Bapunta%2BGoogle%2BPanda%2B4.0%2Bsolonuevas.png' width='154' height='115' alt='lorem'>" +
 "</a>";
-document.body.appendChild(d);
+//document.body.appendChild(d);
+var articleDiv = document.querySelector("div.tbs");
+articleDiv.appendChild(d);
