@@ -14,4 +14,9 @@ d.innerHTML = "<a href='http:www.yandex.by'>" +
 "</a>";
 //document.body.appendChild(d);
 var articleDiv = document.querySelector("div.tbs");
-articleDiv.appendChild(d);
+//articleDiv.appendChild(d);
+
+insertBefore(d, articleDiv);
+
+
+
