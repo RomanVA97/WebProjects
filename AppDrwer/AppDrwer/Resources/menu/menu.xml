@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+  <item android:id="@+id/action_n"
+      android:title="Вывести имя приложения" />
+  
+  <item android:id="@+id/action_time"
+      android:title="Список поездов, отправляющихся течении\n часа и в настоящий момент" />
+
+  <item android:id="@+id/action_show"
+      android:title="список всех поездов"/>
+
+</menu>
