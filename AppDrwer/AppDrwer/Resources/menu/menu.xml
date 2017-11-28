@@ -8,6 +8,9 @@
   <item android:id="@+id/action_time"
       android:title="Список поездов, отправляющихся течении\n часа и в настоящий момент" />
 
+  <item android:id="@+id/action_r"
+      android:title="Список поездов, отправляющихся с ближайшего вокзала" />
+  
   <item android:id="@+id/action_show"
       android:title="список всех поездов"/>
 

@@ -95,6 +95,12 @@ namespace AppDrwer
                         StartActivity(intent);
                     }
                     break;
+                case Resource.Id.action_r:
+                    {
+                        intent = new Intent(this, typeof(ShowRActivity));
+                        StartActivity(intent);
+                    }
+                    break;
 
 
                 case Resource.Id.action_n:

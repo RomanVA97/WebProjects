@@ -1595,7 +1595,7 @@ containing a value of this type.
     }
     public static final class id {
         public static final int action0=0x7f0c0057;
-        public static final int action_b=0x7f0c0076;
+        public static final int action_b=0x7f0c007b;
         public static final int action_bar=0x7f0c0041;
         public static final int action_bar_activity_content=0x7f0c0000;
         public static final int action_bar_container=0x7f0c0040;
@@ -1610,18 +1610,20 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0c003e;
         public static final int action_mode_bar_stub=0x7f0c003d;
         public static final int action_mode_close_button=0x7f0c0023;
-        public static final int action_n=0x7f0c0073;
-        public static final int action_show=0x7f0c0075;
-        public static final int action_time=0x7f0c0074;
+        public static final int action_n=0x7f0c0077;
+        public static final int action_r=0x7f0c0079;
+        public static final int action_show=0x7f0c007a;
+        public static final int action_time=0x7f0c0078;
         public static final int activity_chooser_view_content=0x7f0c0024;
         public static final int alertTitle=0x7f0c0030;
         public static final int always=0x7f0c001b;
         public static final int autoCompleteTextView1=0x7f0c0051;
         public static final int beginning=0x7f0c0018;
-        public static final int btnTwo=0x7f0c0071;
+        public static final int btnTwo=0x7f0c0075;
         public static final int btn_fr=0x7f0c0052;
         public static final int btn_fr2=0x7f0c006e;
         public static final int btn_fr3=0x7f0c0055;
+        public static final int btn_r=0x7f0c0071;
         public static final int button1=0x7f0c0050;
         public static final int buttonPanel=0x7f0c002b;
         public static final int cancel_action=0x7f0c0058;
@@ -1653,6 +1655,8 @@ containing a value of this type.
         public static final int listView=0x7f0c0056;
         public static final int listViewShow=0x7f0c0065;
         public static final int list_item=0x7f0c0028;
+        public static final int mT=0x7f0c006f;
+        public static final int mT2=0x7f0c0070;
         public static final int media_actions=0x7f0c005a;
         public static final int middle=0x7f0c001a;
         public static final int multiply=0x7f0c0013;
@@ -1689,10 +1693,10 @@ containing a value of this type.
         public static final int src_over=0x7f0c0017;
         public static final int status_bar_latest_event_content=0x7f0c0059;
         public static final int submit_area=0x7f0c004c;
-        public static final int tP=0x7f0c0070;
+        public static final int tP=0x7f0c0074;
         public static final int tV1=0x7f0c0064;
-        public static final int tV2=0x7f0c0072;
-        public static final int tV3=0x7f0c006f;
+        public static final int tV2=0x7f0c0076;
+        public static final int tV3=0x7f0c0073;
         public static final int tabMode=0x7f0c000b;
         public static final int text=0x7f0c0061;
         public static final int text2=0x7f0c005f;
@@ -1705,6 +1709,7 @@ containing a value of this type.
         public static final int textView6=0x7f0c006b;
         public static final int textView7=0x7f0c006c;
         public static final int textView8=0x7f0c006d;
+        public static final int textViewR=0x7f0c0072;
         public static final int time=0x7f0c005d;
         public static final int title=0x7f0c002a;
         public static final int title_template=0x7f0c002f;
@@ -1765,9 +1770,10 @@ containing a value of this type.
         public static final int select_dialog_singlechoice_material=0x7f040028;
         public static final int show=0x7f040029;
         public static final int showitemfragment=0x7f04002a;
-        public static final int support_simple_spinner_dropdown_item=0x7f04002b;
-        public static final int three=0x7f04002c;
-        public static final int two=0x7f04002d;
+        public static final int showr=0x7f04002b;
+        public static final int support_simple_spinner_dropdown_item=0x7f04002c;
+        public static final int three=0x7f04002d;
+        public static final int two=0x7f04002e;
     }
     public static final class menu {
         public static final int menu=0x7f0d0000;

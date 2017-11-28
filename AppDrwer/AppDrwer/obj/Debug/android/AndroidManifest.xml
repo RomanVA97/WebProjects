@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="AppDrwer.AppDrwer">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="AppDrwer.AppDrwer" android:installLocation="auto">
   <!--suppress UsesMinSdkAttributes-->
   <uses-sdk android:minSdkVersion="21" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-  <application android:allowBackup="true" android:icon="@mipmap/icon" android:label="@string/app_name" android:name="android.app.Application" android:debuggable="true">
+  <application android:allowBackup="true" android:label="@string/app_name" android:name="android.app.Application" android:debuggable="true">
     <activity android:label="Bck" android:name="md5eb7370522431fac992aacfb28146c1be.Bck" />
     <activity android:icon="@mipmap/icon" android:label="AppDrawer" android:name="md5eb7370522431fac992aacfb28146c1be.MainActivity">
       <intent-filter>
@@ -14,6 +16,7 @@
     </activity>
     <activity android:label="OneActivity" android:name="md5eb7370522431fac992aacfb28146c1be.OneActivity" />
     <activity android:label="ShowActivity" android:name="md5eb7370522431fac992aacfb28146c1be.ShowActivity" />
+    <activity android:label="Get Location" android:name="md5eb7370522431fac992aacfb28146c1be.ShowRActivity" />
     <activity android:label="ThreeActivity" android:name="md5eb7370522431fac992aacfb28146c1be.ThreeActivity" />
     <activity android:label="TimeActivity" android:name="md5eb7370522431fac992aacfb28146c1be.TimeActivity" />
     <activity android:label="TwoActivity" android:name="md5eb7370522431fac992aacfb28146c1be.TwoActivity" />

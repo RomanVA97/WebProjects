@@ -26,6 +26,10 @@ AppDrwer.ShowItemFragment, AppDrwer;md5eb7370522431fac992aacfb28146c1be.ShowItem
 AppDrwer.ShowItemFragment, AppDrwer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5eb7370522431fac992aacfb28146c1be.ShowItemFragment
 AppDrwer.ShowItemFragment;md5eb7370522431fac992aacfb28146c1be.ShowItemFragment
 appdrwer.ShowItemFragment;md5eb7370522431fac992aacfb28146c1be.ShowItemFragment
+AppDrwer.ShowRActivity, AppDrwer;md5eb7370522431fac992aacfb28146c1be.ShowRActivity
+AppDrwer.ShowRActivity, AppDrwer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5eb7370522431fac992aacfb28146c1be.ShowRActivity
+AppDrwer.ShowRActivity;md5eb7370522431fac992aacfb28146c1be.ShowRActivity
+appdrwer.ShowRActivity;md5eb7370522431fac992aacfb28146c1be.ShowRActivity
 AppDrwer.ThreeActivity, AppDrwer;md5eb7370522431fac992aacfb28146c1be.ThreeActivity
 AppDrwer.ThreeActivity, AppDrwer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5eb7370522431fac992aacfb28146c1be.ThreeActivity
 AppDrwer.ThreeActivity;md5eb7370522431fac992aacfb28146c1be.ThreeActivity

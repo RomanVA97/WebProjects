@@ -1438,8 +1438,8 @@ namespace AppDrwer
 			// aapt resource value: 0x7f0c0057
 			public const int action0 = 2131492951;
 			
-			// aapt resource value: 0x7f0c0076
-			public const int action_b = 2131492982;
+			// aapt resource value: 0x7f0c007b
+			public const int action_b = 2131492987;
 			
 			// aapt resource value: 0x7f0c0041
 			public const int action_bar = 2131492929;
@@ -1483,14 +1483,17 @@ namespace AppDrwer
 			// aapt resource value: 0x7f0c0023
 			public const int action_mode_close_button = 2131492899;
 			
-			// aapt resource value: 0x7f0c0073
-			public const int action_n = 2131492979;
+			// aapt resource value: 0x7f0c0077
+			public const int action_n = 2131492983;
 			
-			// aapt resource value: 0x7f0c0075
-			public const int action_show = 2131492981;
+			// aapt resource value: 0x7f0c0079
+			public const int action_r = 2131492985;
 			
-			// aapt resource value: 0x7f0c0074
-			public const int action_time = 2131492980;
+			// aapt resource value: 0x7f0c007a
+			public const int action_show = 2131492986;
+			
+			// aapt resource value: 0x7f0c0078
+			public const int action_time = 2131492984;
 			
 			// aapt resource value: 0x7f0c0024
 			public const int activity_chooser_view_content = 2131492900;
@@ -1507,8 +1510,8 @@ namespace AppDrwer
 			// aapt resource value: 0x7f0c0018
 			public const int beginning = 2131492888;
 			
-			// aapt resource value: 0x7f0c0071
-			public const int btnTwo = 2131492977;
+			// aapt resource value: 0x7f0c0075
+			public const int btnTwo = 2131492981;
 			
 			// aapt resource value: 0x7f0c0052
 			public const int btn_fr = 2131492946;
@@ -1518,6 +1521,9 @@ namespace AppDrwer
 			
 			// aapt resource value: 0x7f0c0055
 			public const int btn_fr3 = 2131492949;
+			
+			// aapt resource value: 0x7f0c0071
+			public const int btn_r = 2131492977;
 			
 			// aapt resource value: 0x7f0c0050
 			public const int button1 = 2131492944;
@@ -1611,6 +1617,12 @@ namespace AppDrwer
 			
 			// aapt resource value: 0x7f0c0028
 			public const int list_item = 2131492904;
+			
+			// aapt resource value: 0x7f0c006f
+			public const int mT = 2131492975;
+			
+			// aapt resource value: 0x7f0c0070
+			public const int mT2 = 2131492976;
 			
 			// aapt resource value: 0x7f0c005a
 			public const int media_actions = 2131492954;
@@ -1720,17 +1732,17 @@ namespace AppDrwer
 			// aapt resource value: 0x7f0c004c
 			public const int submit_area = 2131492940;
 			
-			// aapt resource value: 0x7f0c0070
-			public const int tP = 2131492976;
+			// aapt resource value: 0x7f0c0074
+			public const int tP = 2131492980;
 			
 			// aapt resource value: 0x7f0c0064
 			public const int tV1 = 2131492964;
 			
-			// aapt resource value: 0x7f0c0072
-			public const int tV2 = 2131492978;
+			// aapt resource value: 0x7f0c0076
+			public const int tV2 = 2131492982;
 			
-			// aapt resource value: 0x7f0c006f
-			public const int tV3 = 2131492975;
+			// aapt resource value: 0x7f0c0073
+			public const int tV3 = 2131492979;
 			
 			// aapt resource value: 0x7f0c000b
 			public const int tabMode = 2131492875;
@@ -1767,6 +1779,9 @@ namespace AppDrwer
 			
 			// aapt resource value: 0x7f0c006d
 			public const int textView8 = 2131492973;
+			
+			// aapt resource value: 0x7f0c0072
+			public const int textViewR = 2131492978;
 			
 			// aapt resource value: 0x7f0c005d
 			public const int time = 2131492957;
@@ -1963,13 +1978,16 @@ namespace AppDrwer
 			public const int showItemFragment = 2130968618;
 			
 			// aapt resource value: 0x7f04002b
-			public const int support_simple_spinner_dropdown_item = 2130968619;
+			public const int ShowR = 2130968619;
 			
 			// aapt resource value: 0x7f04002c
-			public const int Three = 2130968620;
+			public const int support_simple_spinner_dropdown_item = 2130968620;
 			
 			// aapt resource value: 0x7f04002d
-			public const int Two = 2130968621;
+			public const int Three = 2130968621;
+			
+			// aapt resource value: 0x7f04002e
+			public const int Two = 2130968622;
 			
 			static Layout()
 			{

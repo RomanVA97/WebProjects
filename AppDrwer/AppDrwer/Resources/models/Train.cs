@@ -15,6 +15,7 @@ namespace AppDrwer.Resources.model
     class Train
     {
         public int Id { get; set; }
+        public int StatitonId { get; set; }
         public string Punkt { get; set; }
         public int Number { get; set; }
         public DateTime Date { get; set; }
@@ -26,7 +27,7 @@ namespace AppDrwer.Resources.model
 
         public override string ToString()
         {
-            return Punkt + " " + Number + " " + Date.Hour + ":" + Date.Minute + " " + Ob + " " + Kupe + " " + Pl + " " + Lukc;
+            return Punkt + " " + Number + " " + StatitonId + " " + Date.Hour + ":" + Date.Minute + " " + Ob + " " + Kupe + " " + Pl + " " + Lukc;
         }
 
     }
