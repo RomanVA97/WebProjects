@@ -18,10 +18,10 @@ namespace task1
                 student.Name = "name_" + (i + 1);
                 student.FirstName = "firstName_" + (i + 1);
                 student.LastName = "lastName_" + (i + 1);
-                student.Marks = new Mark[4];
+                student.Mark = new Mark[4];
                 for (int j = 0; j < 4; j++)
                 {
-                    student.Marks[j] = new Mark { Name = "object_" + (j + 1), MarkValue = random.Next(5, 11) };
+                    student.Mark[j] = new Mark { Name = "object_" + (j + 1), MarkValue = random.Next(5, 11) };
                 }
                 list.Add(student);
             }
@@ -30,15 +30,27 @@ namespace task1
             {
                 Console.WriteLine(item.ToString());
                 Console.WriteLine("Avg : " + item.GetAvgMark());
-                foreach (Mark itemMark in item.Marks)
+                foreach (Mark itemMark in item.Mark)
                     Console.WriteLine(itemMark.ToString());
             }
-
             foreach (Student item in list)
             {
                 Console.WriteLine(item.ToString());
-                Student.ResetAllMarks(item.Marks);
-                foreach (Mark itemMark in item.Marks)
+                Student.ResetAllMarks(item.Mark);
+                foreach (Mark itemMark in item.Mark)
+                    Console.WriteLine(itemMark.ToString());
+            }
+            foreach (Student item in list)
+            {
+                Console.WriteLine(item.ToString());
+                Student.SetNullReference(ref item.mark);
+                //Student.ResetAllMarks(item.Marks);
+                if (item.Mark == null)
+                {
+                    Console.WriteLine("Reference is NULL");
+                    continue;
+                }
+                foreach (Mark itemMark in item.Mark)
                     Console.WriteLine(itemMark.ToString());
             }
 
