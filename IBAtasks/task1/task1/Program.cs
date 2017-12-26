@@ -18,10 +18,10 @@ namespace task1
                 student.Name = "name_" + (i + 1);
                 student.FirstName = "firstName_" + (i + 1);
                 student.LastName = "lastName_" + (i + 1);
-                student.Marks = new List<Mark>();
+                student.Marks = new Mark[4];
                 for (int j = 0; j < 4; j++)
                 {
-                    student.Marks.Add(new Mark { Name = "object_" + (j + 1), MarkValue = random.Next(5, 11) });
+                    student.Marks[j] = new Mark { Name = "object_" + (j + 1), MarkValue = random.Next(5, 11) };
                 }
                 list.Add(student);
             }
@@ -37,7 +37,7 @@ namespace task1
             foreach (Student item in list)
             {
                 Console.WriteLine(item.ToString());
-                item.ResetAllMarks();
+                Student.ResetAllMarks(item.Marks);
                 foreach (Mark itemMark in item.Marks)
                     Console.WriteLine(itemMark.ToString());
             }

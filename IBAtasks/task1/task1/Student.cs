@@ -11,7 +11,7 @@ namespace task1
         public string Name { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public List<Mark> Marks { get; set; }
+        public Mark[] Marks { get; set; }
 
         public override string ToString()
         {
@@ -23,9 +23,9 @@ namespace task1
             return Marks.Average(x => x.MarkValue);
         }
 
-        public void ResetAllMarks()
+        public static void ResetAllMarks(params Mark[] items)
         {
-            foreach (Mark item in Marks) item.MarkValue = 0;
+            foreach (Mark item in items) item.MarkValue = 0;
         }
 
     }
