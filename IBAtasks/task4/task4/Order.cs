@@ -10,13 +10,15 @@ namespace task4
     {
         public int Id { get; set; }
         public int ClientId { get; set; }
-        public int ProductId { get; set; }
+        public List<int> ProductIdList { get; set; }
         public bool IsPaid { get; set; }
 
 
         public override string ToString()
         {
-            return "Client id - " + ClientId + " Product id - " + ProductId + " IsPaid - " + IsPaid;
+            string s = "Client id - " + ClientId + " IsPaid - " + IsPaid + " Product id: ";
+            foreach (int item in ProductIdList) s += item.ToString() + " ";
+            return s;
         }
 
     }

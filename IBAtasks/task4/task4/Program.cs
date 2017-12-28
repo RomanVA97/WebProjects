@@ -25,7 +25,7 @@ namespace task4
 
             for (int i = 0; i < 5; i++)
             {
-                shop.CreateOrder(clientList.ElementAt(i), productList.ElementAt(i));
+                shop.CreateOrder(clientList.ElementAt(i), productList);
             }
             shop.PaymentOrder(2);
             shop.PaymentOrder(0);
