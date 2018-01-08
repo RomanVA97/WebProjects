@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace task5
 {
-    class Group<T>
+    class Group
     {
-        List<T> items = new List<T>();
+        List<IAnimal> items = new List<IAnimal>();
 
-        public void Add(T item)
+        public void Add(IAnimal item)
         {
             items.Add(item);
         }
 
-        public List<T> GetList
+        public List<IAnimal> GetList
         {
             get { return items; }
         }
 
-        public bool Delete(T item)
+        public bool Delete(IAnimal item)
         {
             return items.Remove(item);
         }

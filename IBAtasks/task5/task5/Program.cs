@@ -11,9 +11,9 @@ namespace task5
         static void Main(string[] args)
         {
 
-            Group<Fish> fishGroup = new Group<Fish>();
-            Group<Horse> horseGroup = new Group<Horse>();
-            Group<Eagle> eagleGroup = new Group<Eagle>();
+            Group fishGroup = new Group();
+            Group horseGroup = new Group();
+            Group eagleGroup = new Group();
 
             for(int i = 0; i < 5; i++)
             {
