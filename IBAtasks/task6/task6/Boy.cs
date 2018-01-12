@@ -10,6 +10,15 @@ namespace task6
     {
         int numberOfWins = 0;
 
+        public Boy()
+        {
+
+        }
+
+        public Boy(int num)
+        {
+
+        }
 
 
 
