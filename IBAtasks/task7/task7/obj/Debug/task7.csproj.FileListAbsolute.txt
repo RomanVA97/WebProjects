@@ -1,0 +1,7 @@
+C:\GitRepository\IBAtasks\task7\task7\bin\Debug\task7.exe.config
+C:\GitRepository\IBAtasks\task7\task7\bin\Debug\task7.exe
+C:\GitRepository\IBAtasks\task7\task7\bin\Debug\task7.pdb
+C:\GitRepository\IBAtasks\task7\task7\obj\Debug\task7.csprojResolveAssemblyReference.cache
+C:\GitRepository\IBAtasks\task7\task7\obj\Debug\task7.csproj.CoreCompileInputs.cache
+C:\GitRepository\IBAtasks\task7\task7\obj\Debug\task7.exe
+C:\GitRepository\IBAtasks\task7\task7\obj\Debug\task7.pdb
