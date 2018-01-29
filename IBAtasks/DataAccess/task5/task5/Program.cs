@@ -18,6 +18,7 @@ namespace task5
             group.Add(horse);
             group.Add(new Eagle { Name = "eagle" });
             group.Add(new Cat { Name = "cat" });
+            group.Add(new Cat { Name = "cat2" });
             group.Add(new Tiger { Name = "tiger" });
 
             Group group2 = new Group();
@@ -28,8 +29,11 @@ namespace task5
 
 
             List<IAnimal> result;
-            
-            foreach (IAnimal item in group.ToList<IAnimal>()) Console.WriteLine(item.ToString());
+
+
+            foreach (IAnimal item in group.ToList<IAnimal>().OrderByDescending(c => c.ToString())) Console.WriteLine(item.ToString());
+            Console.WriteLine();
+            foreach (IAnimal item in group.ToList<IAnimal>().Where(c=>c.ToString().StartsWith("c"))) Console.WriteLine(item.ToString());
             result = group.Except(group2).ToList();
 
             Console.WriteLine();
@@ -44,7 +48,7 @@ namespace task5
             result = group.Union(group2).ToList();
             Console.WriteLine();
             Console.WriteLine("Union");
-            foreach (IAnimal item in result) Console.WriteLine(item.ToString());
+            foreach (IAnimal item in result.OrderBy(c=> c.ToString())) Console.WriteLine(item.ToString());
 
 
             Console.ReadKey();
