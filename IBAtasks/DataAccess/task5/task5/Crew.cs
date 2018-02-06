@@ -9,7 +9,6 @@ namespace task5
 {
     class Crew : IList<Crew>
     {
-        Crew[] crew = new Crew[100];
         List<Crew> list = new List<Crew>();
         int count = 0;
 
