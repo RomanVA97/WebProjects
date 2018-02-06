@@ -10,70 +10,63 @@ namespace task5
     class Crew : IList<Crew>
     {
         Crew[] crew = new Crew[100];
+        List<Crew> list = new List<Crew>();
         int count = 0;
 
 
         public List<Worker> WorkerList { get; set; }
+        
 
+        public Crew this[int index] { get => list[index]; set => list[index] = value; }
 
-        public Crew this[int index] { get => crew[index]; set => crew[index] = value; }
-
-        public int Count { get { return count; } }
+        public int Count { get { return list.Count; } }
 
         public bool IsReadOnly => throw new NotImplementedException();
 
         public void Add(Crew item)
         {
-            crew[count] = item;
-            count++;
+            list.Add(item);
         }
 
         public void Clear()
         {
-            count = 0;
+            list.Clear();
         }
 
         public bool Contains(Crew item)
         {
-            throw new NotImplementedException();
+            return list.Contains(item);
         }
 
         public void CopyTo(Crew[] array, int arrayIndex)
         {
-            throw new NotImplementedException();
+            list.CopyTo(array, arrayIndex);
         }
 
         public IEnumerator<Crew> GetEnumerator()
         {
-            for (int i = 0; i < count; i++) yield return crew[i];
+            return list.GetEnumerator();
+            
         }
 
         public int IndexOf(Crew item)
         {
-            throw new NotImplementedException();
+            return list.IndexOf(item);
         }
 
         public void Insert(int index, Crew item)
         {
-            crew[index] = item;
+            list.Insert(index, item);
         }
 
         public bool Remove(Crew item)
         {
-            for (int i = 0; i < count; i++)
-            {
-                if (crew[i] == item)
-                {
-                    crew[i] = null;
-                    return true;
-                }
-            }
-            return false;
+            return list.Remove(item);
         }
 
         public void RemoveAt(int index)
         {
-            crew[index] = null;
+            list.RemoveAt(index);
         }
 
         IEnumerator IEnumerable.GetEnumerator()

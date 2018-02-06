@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace task5
 {
-    public enum WorkerPosition { Капитан,Летчик,Техник};
+    public enum WorkerPosition { Captain, Technican, Pilot };
     class Worker:IComparer<Worker>, IComparable<Worker>
     {
         public string Name { get; set; }
@@ -18,13 +18,7 @@ namespace task5
 
         public int Compare(Worker x, Worker y)
         {
-            int one = 0;
-            int two = 0;
-            if (x.WorkerPosition == WorkerPosition.Капитан) one = 2;
-            else if(x.WorkerPosition == WorkerPosition.Техник) one = 1;
-            if (y.WorkerPosition == WorkerPosition.Капитан) two = 2;
-            else if (y.WorkerPosition == WorkerPosition.Техник) two = 1;
-            return one.CompareTo(two);
+            return x.WorkerPosition.CompareTo(y.WorkerPosition);
         }
 
         public int CompareTo(Worker other)
