@@ -11,8 +11,7 @@ namespace task5
     {
         List<Crew> list = new List<Crew>();
         int count = 0;
-
-
+        
         public List<Worker> WorkerList { get; set; }
         
 

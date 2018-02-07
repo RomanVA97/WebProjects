@@ -1,0 +1,7 @@
+C:\Users\Роман\source\repos\task6\task6\bin\Debug\task6.exe.config
+C:\Users\Роман\source\repos\task6\task6\bin\Debug\task6.exe
+C:\Users\Роман\source\repos\task6\task6\bin\Debug\task6.pdb
+C:\Users\Роман\source\repos\task6\task6\obj\Debug\task6.csprojResolveAssemblyReference.cache
+C:\Users\Роман\source\repos\task6\task6\obj\Debug\task6.csproj.CoreCompileInputs.cache
+C:\Users\Роман\source\repos\task6\task6\obj\Debug\task6.exe
+C:\Users\Роман\source\repos\task6\task6\obj\Debug\task6.pdb
