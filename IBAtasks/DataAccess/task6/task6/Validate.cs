@@ -16,7 +16,7 @@ namespace task6
         }
         public static bool Paths(string paths)
         {
-            string pattern = @"^[a-z]:\\\[^:/*?<>|]{0,}$";
+            string pattern = @"^([a-z]:|~)\\\[^:/*?<>|]{0,}$";
             return Regex.IsMatch(paths, pattern, RegexOptions.IgnoreCase);
         }
         public static bool Email(string email)
