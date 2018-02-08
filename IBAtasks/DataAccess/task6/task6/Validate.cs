@@ -11,7 +11,7 @@ namespace task6
     {
         public static bool Price(string url)
         {
-            string pattern = @"\d{1,}(\$|RUB|BYN)";
+            string pattern = @"\d{1,}(\$|\sRUB|\sBYN)";
             return Regex.IsMatch(url, pattern);
         }
         public static bool URL(string url)
