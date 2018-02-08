@@ -5,3 +5,10 @@ C:\Users\Роман\source\repos\task6\task6\obj\Debug\task6.csprojResolveAssemb
 C:\Users\Роман\source\repos\task6\task6\obj\Debug\task6.csproj.CoreCompileInputs.cache
 C:\Users\Роман\source\repos\task6\task6\obj\Debug\task6.exe
 C:\Users\Роман\source\repos\task6\task6\obj\Debug\task6.pdb
+C:\GitRepository\IBAtasks\DataAccess\task6\task6\bin\Debug\task6.exe.config
+C:\GitRepository\IBAtasks\DataAccess\task6\task6\bin\Debug\task6.exe
+C:\GitRepository\IBAtasks\DataAccess\task6\task6\bin\Debug\task6.pdb
+C:\GitRepository\IBAtasks\DataAccess\task6\task6\obj\Debug\task6.csprojResolveAssemblyReference.cache
+C:\GitRepository\IBAtasks\DataAccess\task6\task6\obj\Debug\task6.csproj.CoreCompileInputs.cache
+C:\GitRepository\IBAtasks\DataAccess\task6\task6\obj\Debug\task6.exe
+C:\GitRepository\IBAtasks\DataAccess\task6\task6\obj\Debug\task6.pdb

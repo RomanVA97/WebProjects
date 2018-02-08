@@ -9,6 +9,11 @@ namespace task6
 {
     class Validate
     {
+        public static bool Price(string url)
+        {
+            string pattern = @"\d{1,}(\$|RUB|BYN)";
+            return Regex.IsMatch(url, pattern);
+        }
         public static bool URL(string url)
         {
             string pattern = @"(http|https)://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?";
