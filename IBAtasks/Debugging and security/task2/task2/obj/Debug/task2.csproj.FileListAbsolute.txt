@@ -1,0 +1,7 @@
+C:\GitRepository\IBAtasks\Debugging and security\task2\task2\bin\Debug\task2.exe.config
+C:\GitRepository\IBAtasks\Debugging and security\task2\task2\bin\Debug\task2.exe
+C:\GitRepository\IBAtasks\Debugging and security\task2\task2\bin\Debug\task2.pdb
+C:\GitRepository\IBAtasks\Debugging and security\task2\task2\obj\Debug\task2.csprojResolveAssemblyReference.cache
+C:\GitRepository\IBAtasks\Debugging and security\task2\task2\obj\Debug\task2.csproj.CoreCompileInputs.cache
+C:\GitRepository\IBAtasks\Debugging and security\task2\task2\obj\Debug\task2.exe
+C:\GitRepository\IBAtasks\Debugging and security\task2\task2\obj\Debug\task2.pdb
