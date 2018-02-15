@@ -1,0 +1,7 @@
+C:\GitRepository\IBAtasks\Debugging and security\task3\task3\bin\Debug\task3.exe.config
+C:\GitRepository\IBAtasks\Debugging and security\task3\task3\bin\Debug\task3.exe
+C:\GitRepository\IBAtasks\Debugging and security\task3\task3\bin\Debug\task3.pdb
+C:\GitRepository\IBAtasks\Debugging and security\task3\task3\obj\Debug\task3.csprojResolveAssemblyReference.cache
+C:\GitRepository\IBAtasks\Debugging and security\task3\task3\obj\Debug\task3.csproj.CoreCompileInputs.cache
+C:\GitRepository\IBAtasks\Debugging and security\task3\task3\obj\Debug\task3.exe
+C:\GitRepository\IBAtasks\Debugging and security\task3\task3\obj\Debug\task3.pdb
