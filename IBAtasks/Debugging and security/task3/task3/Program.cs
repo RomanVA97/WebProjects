@@ -13,12 +13,13 @@ namespace task3
         {
             int x = 2;
             int[] y = { 10, 15, 123, 65 };
-
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
             Algorithm1(x, y);
+            Console.WriteLine("Затраченное время - " + stopwatch.ElapsedTicks);
+            stopwatch.Start();
             Algorithm2(x, y);
-
-
-
+            Console.WriteLine("Затраченное время - " + stopwatch.ElapsedTicks);
 
 
             Console.ReadKey();
@@ -27,21 +28,16 @@ namespace task3
 
         static void Algorithm1(int x, int[] y)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
+            
             for(int i=0; i<y.Length;i++)
                Console.WriteLine(Evklid(x, y[i]));
-            Console.WriteLine("Затраченное время - " + stopwatch.ElapsedTicks);
             
         }
 
         static void Algorithm2(int x, int[] y)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
             for (int i = 0; i < y.Length; i++)
                 Console.WriteLine(BinEvklid(x, y[i]));
-            Console.WriteLine("Затраченное время - " + stopwatch.ElapsedTicks);
         }
 
         static long Evklid(long a, long b)
