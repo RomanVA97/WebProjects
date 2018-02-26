@@ -10,15 +10,9 @@ namespace task3
     {
         static void Main(string[] args)
         {
-            Plant plant = new Plant();
-            Carnivore carnivore = new Carnivore();
-            Herbivore herbivore = new Herbivore();
-            plant.OnChange += () => Console.WriteLine("Расту ради того чтобы скушать травоядное");
-            carnivore.OnChange += () => Console.WriteLine("Съешь меня");
-            herbivore.OnChange += () => Console.WriteLine("Ок, уже");
-            plant.Raise();
-            carnivore.Raise();
-            herbivore.Raise();
+            Plant.Handler.Invoke(new object(), new EventArgs());
+
+
 
             Console.ReadKey();
         }
