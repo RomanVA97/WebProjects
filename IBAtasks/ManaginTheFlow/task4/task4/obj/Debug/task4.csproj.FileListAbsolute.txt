@@ -1,0 +1,7 @@
+C:\GitRepository\IBAtasks\ManaginTheFlow\task4\task4\bin\Debug\task4.exe.config
+C:\GitRepository\IBAtasks\ManaginTheFlow\task4\task4\bin\Debug\task4.exe
+C:\GitRepository\IBAtasks\ManaginTheFlow\task4\task4\bin\Debug\task4.pdb
+C:\GitRepository\IBAtasks\ManaginTheFlow\task4\task4\obj\Debug\task4.csprojResolveAssemblyReference.cache
+C:\GitRepository\IBAtasks\ManaginTheFlow\task4\task4\obj\Debug\task4.csproj.CoreCompileInputs.cache
+C:\GitRepository\IBAtasks\ManaginTheFlow\task4\task4\obj\Debug\task4.exe
+C:\GitRepository\IBAtasks\ManaginTheFlow\task4\task4\obj\Debug\task4.pdb
